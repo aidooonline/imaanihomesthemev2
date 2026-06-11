@@ -39,8 +39,8 @@
 
 - Theme skeleton (`style.css`, `functions.php`, theme setup, image sizes, menus)
 - Vite build pipeline, dev/prod npm scripts
-- Design tokens (burgundy hex locked, white, neutrals, scale, spacing, radius)
-- Typography system (Playfair + Outfit, type scale)
+- Design tokens (burgundy #7F1221, deep gold #9C7C38 accent, white, neutrals, scale, spacing, radius)
+- Typography system (Playfair + Outfit, generous 18px-base type scale — no small fonts)
 - Global header (logo, nav, "Get In Touch")
 - Global footer (with trust strip)
 - Redesigned cookie banner (light, branded)

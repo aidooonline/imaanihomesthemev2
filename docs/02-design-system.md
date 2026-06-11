@@ -2,6 +2,21 @@
 
 > **Status:** Draft. Final values lock in Sprint 1 after a visual pass on the actual UI.
 
+## Design direction (locked)
+
+**Clean white, minimalist, modern — with an enchanting, luxurious real-estate feel.** Burgundy is the brand voice, gold is the whisper. Generous whitespace, large readable type, restrained motion. Nothing cramped, nothing loud.
+
+### Gold usage rules (important — gold is an accent, not a theme)
+
+Gold appears in **small doses only**:
+- Eyebrow labels above section headings (small caps, letter-spaced, `--gold`)
+- Thin divider rules and ornamental hairlines
+- Icon strokes in the pillars/investor blocks
+- Stat numerals or their underlines in the stats bar
+- Hover transitions (burgundy → gold shimmer on link underlines)
+
+Gold must **never** be used for: large fills, buttons (buttons are burgundy), backgrounds, or body text. If a screen feels "gold," we've overdone it. The test: squint at any page — you should see white, then burgundy, and only *then* notice the gold.
+
 ## Palette
 
 | Token | Hex | Usage |
@@ -16,7 +31,9 @@
 | `--ink-muted` | `#3A3A3A` | Secondary text |
 | `--ink-soft` | `#6B6B6B` | Tertiary text, captions |
 | `--line` | `#E5E2DC` | Borders, hairlines |
-| `--gold-accent` | TBD | Optional accent (currently in current site; decide in Sprint 1) |
+| `--gold` | `#9C7C38` | Deep antique gold — secondary accent. Used sparingly: eyebrow labels, dividers, icon strokes, stat numerals, hover details |
+| `--gold-soft` | `#B8985A` | Lighter gold for hairline rules and subtle hover transitions |
+| `--gold-deep` | `#7D6125` | Darker gold for text-on-white where contrast is needed |
 
 Audit's dark theme direction was **rejected**. Site stays light.
 
@@ -28,19 +45,23 @@ Audit's dark theme direction was **rejected**. Site stays light.
 | Body | **Outfit** | Google Fonts, weights 300/400/500/600 |
 | Monospace | system mono stack | for any inline-code rendering |
 
-### Type scale (rem, base = 16px)
+### Type scale (rem, base = 18px — deliberately generous)
 
-| Token | Size | Line height | Usage |
+> Direction: **no small fonts**. Body is 18px, vivid and readable. The scale leans large across the board.
+
+| Token | Size (px) | Line height | Usage |
 |---|---|---|---|
-| `--text-xs` | 0.75rem | 1.5 | Captions, badges |
-| `--text-sm` | 0.875rem | 1.55 | Small body |
-| `--text-base` | 1rem | 1.65 | Body |
-| `--text-lg` | 1.125rem | 1.6 | Lead paragraph |
-| `--text-xl` | 1.5rem | 1.4 | Section eyebrow / small heading |
-| `--text-2xl` | 2rem | 1.25 | H3 |
-| `--text-3xl` | 2.75rem | 1.15 | H2 |
-| `--text-4xl` | 3.5rem | 1.1 | H1 (mobile) |
-| `--text-5xl` | 4.5rem | 1.05 | H1 (desktop) |
+| `--text-xs` | 0.778rem (14px) | 1.5 | Captions, badges — the floor, nothing smaller |
+| `--text-sm` | 0.889rem (16px) | 1.55 | Small body, meta |
+| `--text-base` | 1rem (18px) | 1.7 | Body |
+| `--text-lg` | 1.167rem (21px) | 1.6 | Lead paragraph |
+| `--text-xl` | 1.556rem (28px) | 1.35 | Section eyebrow / small heading |
+| `--text-2xl` | 2.111rem (38px) | 1.2 | H3 |
+| `--text-3xl` | 2.889rem (52px) | 1.12 | H2 |
+| `--text-4xl` | 3.778rem (68px) | 1.06 | H1 (mobile clamps down to ~40px) |
+| `--text-5xl` | 4.889rem (88px) | 1.02 | H1 (desktop hero) |
+
+Fluid sizing via `clamp()` on headings so the hero feels grand on desktop without overflowing mobile.
 
 ## Spacing scale (rem)
 

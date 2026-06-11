@@ -10,8 +10,8 @@ Every decision below is locked from the discovery questionnaire and overrides an
 | Domain | `imaanihomes.com` (main domain). Regalia stays on its subdomain |
 | Staging | `test.imaanihomes.com` (subdomain, cloned from prod) |
 | Title tag | **Unchanged from current** (SEO decision) |
-| Theme | Light, clean — **not** the dark direction the audit proposed |
-| Palette | Clean white + burgundy `#7F1221` |
+| Theme | Light, clean, minimalist, modern — luxurious real-estate feel. **Not** the dark direction the audit proposed |
+| Palette | Clean white + burgundy `#7F1221`, deep antique gold `#9C7C38` as restrained accent |
 | Fonts | Playfair Display (headings) + Outfit (body) |
 | Logo | Keep current Imaani logo |
 | Tagline | Keep current ("Where Elegance Meets Exclusivity") in header/footer |
