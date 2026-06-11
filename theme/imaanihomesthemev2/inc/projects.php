@@ -17,7 +17,7 @@ function imaani_projects(): array {
             'url'      => 'https://regalia.imaanihomes.com',
             'external' => true,
             'tag'      => 'Off-plan · Open for reservations',
-            'media_slug' => 'regalia-residence',
+            'media_slug' => 'regalia-residence-aerial',
             'blurb'    => 'Imaani Homes’ most ambitious project to date. Five unit types from 30 m² studios to 280 m² penthouses, with a three-level amenity offering crowned by a rooftop infinity-edge pool.',
         ],
         'alexis-residence' => [
