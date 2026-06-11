@@ -99,3 +99,19 @@ function imaani_marquee_items(): array {
         'Trusted by Diaspora Buyers Worldwide',
     ];
 }
+
+/** Logo <img> by media slug, cached. Returns '' if not found. */
+function imaani_logo_by_slug(string $slug, string $class = ''): string {
+    $tkey = 'imaani_logo_' . md5($slug);
+    $id = get_transient($tkey);
+    if (false === $id) {
+        $found = get_posts(['post_type' => 'attachment', 'name' => $slug, 'post_status' => 'inherit', 'posts_per_page' => 1, 'fields' => 'ids']);
+        $id = $found ? (int) $found[0] : 0;
+        set_transient($tkey, $id, DAY_IN_SECONDS);
+    }
+    if (!$id) return '';
+    return wp_get_attachment_image($id, 'full', false, [
+        'class' => $class,
+        'alt'   => 'Imaani Homes',
+    ]);
+}

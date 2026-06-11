@@ -30,11 +30,20 @@
 <header class="site-header" id="site-header">
   <div class="container site-header__row">
     <div class="site-brand">
-      <?php if (has_custom_logo()) : the_custom_logo(); else : ?>
-        <a class="site-brand__text" href="<?php echo esc_url(home_url('/')); ?>">
-          <span class="site-brand__name">Imaani Homes</span>
-        </a>
-      <?php endif; ?>
+      <?php
+      if (has_custom_logo()) {
+          the_custom_logo();
+      } else {
+          $logo = imaani_logo_by_slug('imaanilogomain', 'site-brand__logo');
+          if ($logo) {
+              printf('<a class="site-brand__link" href="%s" aria-label="Imaani Homes — home">%s</a>', esc_url(home_url('/')), $logo);
+          } else { ?>
+            <a class="site-brand__text" href="<?php echo esc_url(home_url('/')); ?>">
+              <span class="site-brand__name">Imaani Homes</span>
+            </a>
+          <?php }
+      }
+      ?>
     </div>
 
     <nav class="site-nav" aria-label="Primary" data-nav>

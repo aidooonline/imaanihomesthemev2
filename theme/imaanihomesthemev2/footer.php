@@ -13,7 +13,13 @@
 
     <div class="site-footer__grid">
       <div class="site-footer__brand">
-        <p class="site-footer__name">Imaani Homes</p>
+        <?php
+        $flogo = imaani_logo_by_slug('imaanilogowhite', 'site-footer__logo');
+        if ($flogo) {
+            echo $flogo; // phpcs:ignore
+        } else { ?>
+          <p class="site-footer__name">Imaani Homes</p>
+        <?php } ?>
         <p class="site-footer__tagline"><?php echo esc_html(get_theme_mod('imaani_tagline', 'Where Elegance Meets Exclusivity')); ?></p>
       </div>
 
