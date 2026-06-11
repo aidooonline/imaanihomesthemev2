@@ -37,9 +37,34 @@ $units = $units ? json_decode($units, true) : ($p['units'] ?? []);
 <section class="section">
   <div class="container project-layout">
     <div class="project-main">
+      <?php if (!empty($p['subtitle'])) : ?>
+        <h2 class="project-subtitle"><?php echo esc_html($p['name']); ?> — <?php echo esc_html($p['subtitle']); ?></h2>
+      <?php endif; ?>
+
       <p class="lead"><?php echo esc_html($p['blurb']); ?></p>
 
+      <?php if (!empty($p['body']) && is_array($p['body'])) : ?>
+        <?php foreach ($p['body'] as $para) : ?>
+          <p><?php echo esc_html($para); ?></p>
+        <?php endforeach; ?>
+      <?php endif; ?>
+
       <?php
+      // Optional gallery of project stills from the media library (by slug)
+      if (!empty($p['gallery_slugs']) && is_array($p['gallery_slugs'])) {
+          $imgs = [];
+          foreach ($p['gallery_slugs'] as $gslug) {
+              $found = get_posts(['post_type' => 'attachment', 'name' => $gslug, 'post_status' => 'inherit', 'posts_per_page' => 1, 'fields' => 'ids']);
+              if ($found) $imgs[] = (int) $found[0];
+          }
+          if (count($imgs) >= 2) {
+              echo '<div class="project-gallery">';
+              foreach ($imgs as $iid) {
+                  echo '<figure class="project-gallery__item">' . wp_get_attachment_image($iid, 'imaani-card', false, ['loading' => 'lazy']) . '</figure>';
+              }
+              echo '</div>';
+          }
+      }
       // Editor-added content (WYSIWYG). Legacy Elementor markup is intentionally skipped.
       $extra = get_the_content();
       $is_legacy = 'builder' === get_post_meta(get_the_ID(), '_elementor_edit_mode', true)
