@@ -3,11 +3,11 @@
 > Read this first when resuming work. Combined with `docs/00-spec.md`, `docs/01-sprint-plan.md`,
 > and `docs/02-design-system.md`, this is the complete project state.
 
-**Last updated:** 11 June 2026 — end of discovery conversation
+**Last updated:** 11 June 2026 — Sprint 0 inventory complete
 
 ## Where we are
 
-**Sprint 0 (Discovery & Architecture) — IN PROGRESS, blocked only on network access.**
+**Sprint 0 (Discovery & Architecture) — COMPLETE pending Stephen's doc review.**
 
 ### Done
 - Full discovery questionnaire completed with Stephen → every decision locked in `docs/00-spec.md`
@@ -17,14 +17,17 @@
 - Staging built by Stephen: **`https://imaanihomes.com/test/`** — prod clone via WPvivid restore (Softaculous fresh install + WPvivid scan-local-backup + restore). Confirmed up and running.
 - WP application password created on staging: username `imaanadmin` (Stephen sends the password directly in chat — never store credentials in this repo)
 
-### Immediately next (Sprint 0 completion)
-1. Verify network access to `imaanihomes.com` from the build environment (`curl https://imaanihomes.com/test/wp-json/`)
-2. Authenticate with the app password against staging REST API
-3. Inventory: plugins (`/wp-json/wp/v2/plugins`), post types (`/types`), taxonomies, all pages + posts + slugs, ACF field groups, menus
-4. Crawl prod URL inventory (sitemap + traversal) — every page and blog post, preserved exactly
-5. Pull verified project stats (units, sizes, locations) from live pages — no invented numbers
-6. Write + push: `docs/03-url-inventory.md`, `docs/04-content-model.md`, `docs/05-plugin-inventory.md`, `docs/06-architecture.md`
-7. Stephen reviews Sprint 0 docs → then Sprint 1 (theme bootstrap)
+### Immediately next
+1. Stephen reviews `docs/03`–`06` and decides the three open items in `06-architecture.md` (portfolio URLs, perf stack, staging hardening)
+2. Fix staging permalinks to `/%category%/%postname%/` and reactivate Yoast on staging (drift found — see 03/05)
+3. Sprint 1: theme bootstrap (scaffold, Vite, tokens, header/footer, front-page hero with locked H1)
+
+### Sprint 0 verification log (11 Jun 2026)
+- Network: `curl https://imaanihomes.com/test/wp-json/` → 200 ✓
+- Auth: app password verified against `/users/me` (user id 1) and `/plugins` (200) ✓
+- Inventoried: 42 plugins, 11 pages, 14 posts, 13 categories, 54 tags, 182 media, Main Menu (ID 32), active theme ArcHub Child
+- Prod sitemap crawled: 9 child sitemaps, all URLs recorded in `docs/03-url-inventory.md`
+- Key findings: staging permalink mismatch; Yoast inactive on staging but active on prod; prod home has NO h1 currently; no hard stats (units/prices/sizes) exist in static prod HTML; Liquid portfolio demo URLs indexed; no noindex on staging
 
 ### Open items / risks
 - **Staging is NOT password-protected** (no Directory Privacy). "Discourage search engines" should be ticked — confirm. Recommend adding Basic Auth, but Stephen hasn't created it; do not assume credentials exist.
