@@ -71,30 +71,50 @@ function imaani_native_form(array $args = []): void {
       <?php wp_nonce_field('imaani_contact', 'imaani_nonce'); ?>
       <p class="hp-field" aria-hidden="true"><label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
 
-      <div class="form-row form-row--2">
-        <label>First name<input type="text" name="first_name" required autocomplete="given-name"></label>
-        <label>Last name<input type="text" name="last_name" autocomplete="family-name"></label>
+      <div class="field-row">
+        <div class="field">
+          <input class="field__input" type="text" id="imf-first" name="first_name" placeholder=" " required autocomplete="given-name">
+          <label class="field__label" for="imf-first">First name</label>
+        </div>
+        <div class="field">
+          <input class="field__input" type="text" id="imf-last" name="last_name" placeholder=" " autocomplete="family-name">
+          <label class="field__label" for="imf-last">Last name</label>
+        </div>
       </div>
-      <div class="form-row form-row--2">
-        <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
-        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+
+      <div class="field-row">
+        <div class="field">
+          <input class="field__input" type="tel" id="imf-phone" name="phone" placeholder=" " autocomplete="tel">
+          <label class="field__label" for="imf-phone">Phone</label>
+        </div>
+        <div class="field">
+          <input class="field__input" type="email" id="imf-email" name="email" placeholder=" " required autocomplete="email">
+          <label class="field__label" for="imf-email">Email</label>
+        </div>
       </div>
+
       <?php if ($default) : ?>
         <input type="hidden" name="interest" value="<?php echo esc_attr($default); ?>">
       <?php else : ?>
-        <label>I'm interested in
-          <select name="interest">
+        <div class="field field--select">
+          <select class="field__input" id="imf-interest" name="interest">
             <option>Regalia</option>
             <option>Alexis Residence</option>
             <option>General</option>
             <option>Investment</option>
           </select>
-        </label>
+          <label class="field__label field__label--static" for="imf-interest">I'm interested in</label>
+        </div>
       <?php endif; ?>
+
       <?php if (!$compact) : ?>
-        <label>Your message<textarea name="message" rows="5"></textarea></label>
+        <div class="field">
+          <textarea class="field__input" id="imf-message" name="message" rows="4" placeholder=" "></textarea>
+          <label class="field__label" for="imf-message">Your message</label>
+        </div>
       <?php endif; ?>
-      <button class="btn btn--primary" type="submit"><?php echo esc_html('Waitlist' === $context ? 'Join the Waitlist' : 'Reserve My Consultation'); ?></button>
+
+      <button class="btn btn--primary btn--lg" type="submit"><?php echo esc_html('Waitlist' === $context ? 'Join the Waitlist' : 'Reserve My Consultation'); ?></button>
       <p class="form-note">Our team responds within 24 hours.</p>
     </form>
     <?php

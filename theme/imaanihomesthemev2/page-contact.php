@@ -11,9 +11,10 @@ $phone = get_theme_mod('imaani_phone', '+233 595 959595');
     <p class="page-head__lead">Tell us what you're looking for — a home, an investment, or both. Our team responds within 24 hours.</p>
   </div>
 </section>
-<section class="section">
+<section class="section section--tint">
   <div class="container contact-layout">
     <div class="contact-form-wrap">
+      <p class="eyebrow">Send a message</p>
       <?php
       $shortcode = get_post_meta(get_the_ID(), 'imaani_form_shortcode', true);
       if ($shortcode) {
