@@ -1,6 +1,6 @@
 # 02 — Design System
 
-> **Status:** Draft. Final values lock in Sprint 1 after a visual pass on the actual UI.
+> **Status:** LOCKED as implemented (rev 2, 11 Jun — Stephen design feedback round). Display font changed Playfair Display → **Marcellus**; body Outfit → **Jost**. Heading scale reduced to a restrained 24–56px band. Signature element: full-bleed photographic hero rotator with scrim + project chip. Buttons are tracked-uppercase smallcaps; burgundy fills always carry white text (enforced with high-specificity rules).
 
 ## Design direction (locked)
 
@@ -41,8 +41,8 @@ Audit's dark theme direction was **rejected**. Site stays light.
 
 | Role | Font | Source |
 |---|---|---|
-| Headings | **Playfair Display** | Google Fonts, weights 400/500/600/700 |
-| Body | **Outfit** | Google Fonts, weights 300/400/500/600 |
+| Headings | **Marcellus** | Google Fonts, single 400 weight — hierarchy via size/tracking |
+| Body | **Jost** | Google Fonts, weights 300/400/500/600 |
 | Monospace | system mono stack | for any inline-code rendering |
 
 ### Type scale (rem, base = 18px — deliberately generous)

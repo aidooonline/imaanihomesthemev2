@@ -12,6 +12,18 @@ $price = !empty($p['price_key']) ? trim((string) get_theme_mod($p['price_key'], 
 $units = get_post_meta(get_the_ID(), 'imaani_units_json', true);
 $units = $units ? json_decode($units, true) : ($p['units'] ?? []);
 ?>
+<?php if (has_post_thumbnail()) : ?>
+<section class="project-banner">
+  <div class="project-banner__media"><?php the_post_thumbnail('imaani-hero', ['loading' => 'eager']); ?></div>
+  <div class="project-banner__scrim" aria-hidden="true"></div>
+  <div class="container project-banner__content">
+    <?php echo imaani_badge($p['status'], $p['badge']); // phpcs:ignore ?>
+    <h1 class="project-banner__title"><?php echo esc_html($p['name']); ?></h1>
+    <p class="project-banner__meta"><?php echo esc_html($p['location']); ?> · <?php echo esc_html($p['tag']); ?></p>
+    <?php if ($price) : ?><p class="project-banner__price">Starting from <strong><?php echo esc_html($price); ?></strong></p><?php endif; ?>
+  </div>
+</section>
+<?php else : ?>
 <section class="page-head page-head--project">
   <div class="container">
     <?php echo imaani_badge($p['status'], $p['badge']); // phpcs:ignore ?>
@@ -19,11 +31,6 @@ $units = $units ? json_decode($units, true) : ($p['units'] ?? []);
     <p class="page-head__meta"><?php echo esc_html($p['location']); ?> · <?php echo esc_html($p['tag']); ?></p>
     <?php if ($price) : ?><p class="page-head__price">Starting from <strong><?php echo esc_html($price); ?></strong></p><?php endif; ?>
   </div>
-</section>
-
-<?php if (has_post_thumbnail()) : ?>
-<section class="project-hero-media">
-  <div class="container"><?php the_post_thumbnail('imaani-hero', ['loading' => 'eager']); ?></div>
 </section>
 <?php endif; ?>
 

@@ -2,36 +2,41 @@
 defined('ABSPATH') || exit;
 get_header();
 $projects = imaani_projects();
+
+// Slides with photography lead; gradient-fallback slides go last.
+$slides = [];
+foreach ($projects as $slug => $p) {
+    $img = imaani_project_image($slug, $p, 'imaani-hero');
+    $slides[] = ['slug' => $slug, 'p' => $p, 'img' => $img];
+}
+usort($slides, fn($a, $b) => ($b['img'] ? 1 : 0) <=> ($a['img'] ? 1 : 0));
 ?>
 
-<section class="hero">
-  <div class="container hero__grid">
-    <div class="hero__copy">
-      <p class="eyebrow">Imaani Homes · Accra</p>
-      <h1 class="hero__title">Top Apartments for sale in Ghana</h1>
-      <p class="hero__subhead">Four luxury developments. Two sold out. Every one delivered on time.</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="<?php echo esc_url(home_url('/projects/')); ?>">View Projects</a>
-        <a class="btn btn--outline" href="<?php echo esc_url(home_url('/contact/')); ?>">Book a Consultation</a>
-      </div>
-    </div>
-
-    <div class="hero__rotator" data-rotator aria-label="Featured developments">
-      <?php $i = 0; foreach ($projects as $slug => $p) : ?>
-        <a class="hero-card<?php echo $i === 0 ? ' is-active' : ''; ?>" data-rotator-item
-           href="<?php echo esc_url($p['external'] ? $p['url'] : home_url($p['url'])); ?>"
+<section class="hero" aria-label="Imaani Homes — featured developments">
+  <div class="hero__slides" data-rotator>
+    <?php foreach ($slides as $i => $s) : $p = $s['p']; ?>
+      <div class="hero-slide<?php echo 0 === $i ? ' is-active' : ''; ?>" data-rotator-item>
+        <div class="hero-slide__media"><?php echo $s['img']; // phpcs:ignore ?></div>
+        <a class="hero-chip" href="<?php echo esc_url($p['external'] ? $p['url'] : home_url($p['url'])); ?>"
            <?php echo $p['external'] ? 'target="_blank" rel="noopener"' : ''; ?>>
-          <div class="hero-card__media" aria-hidden="true">
-            <?php echo imaani_project_image($slug, $p); // phpcs:ignore ?>
-          </div>
-          <div class="hero-card__body">
-            <?php echo imaani_badge($p['status'], $p['badge']); // phpcs:ignore ?>
-            <p class="hero-card__name"><?php echo esc_html($p['name']); ?></p>
-            <p class="hero-card__meta"><?php echo esc_html($p['location']); ?> — <?php echo esc_html($p['tag']); ?></p>
-          </div>
+          <span class="hero-chip__status"><?php echo esc_html($p['badge']); ?></span>
+          <span class="hero-chip__name"><?php echo esc_html($p['name']); ?></span>
+          <span class="hero-chip__loc"><?php echo esc_html($p['location']); ?> →</span>
         </a>
-      <?php $i++; endforeach; ?>
-      <div class="hero__rotator-dots" data-rotator-dots aria-hidden="true"></div>
+      </div>
+    <?php endforeach; ?>
+    <div class="hero__dots" data-rotator-dots aria-hidden="true"></div>
+  </div>
+
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <div class="container hero__content">
+    <p class="eyebrow eyebrow--light">Imaani Homes · Accra</p>
+    <h1 class="hero__title">Top Apartments for sale in Ghana</h1>
+    <p class="hero__subhead">Four luxury developments. Two sold out. Every one delivered on time.</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="<?php echo esc_url(home_url('/projects/')); ?>">View Projects</a>
+      <a class="btn btn--inverse" href="<?php echo esc_url(home_url('/contact/')); ?>">Book a Consultation</a>
     </div>
   </div>
 </section>
@@ -129,11 +134,8 @@ $projects = imaani_projects();
   <div class="container founder__inner">
     <span class="founder__rule" aria-hidden="true"></span>
     <p class="founder__note">&ldquo;<?php echo esc_html(get_theme_mod('imaani_founder_note', 'Imaani Homes was founded on a simple promise: build addresses worth keeping, and deliver them on time. Two sold-out developments later, the promise stands.')); ?>&rdquo;</p>
-    <?php $founder = get_theme_mod('imaani_founder_name', ''); if ($founder) : ?>
-      <p class="founder__name">— <?php echo esc_html($founder); ?>, Founder</p>
-    <?php else : ?>
-      <p class="founder__name">— The Founder, Imaani Homes</p>
-    <?php endif; ?>
+    <?php $founder = get_theme_mod('imaani_founder_name', ''); ?>
+    <p class="founder__name">— <?php echo $founder ? esc_html($founder) . ', Founder' : 'The Founder, Imaani Homes'; ?></p>
   </div>
 </section>
 

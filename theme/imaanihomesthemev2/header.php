@@ -11,13 +11,23 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
+<div class="utility-bar">
+  <div class="container utility-bar__row">
+    <span class="utility-bar__tagline"><?php echo esc_html(get_theme_mod('imaani_tagline', 'Where Elegance Meets Exclusivity')); ?></span>
+    <span class="utility-bar__contact">
+      <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', get_theme_mod('imaani_phone', '+233 595 959595'))); ?>"><?php echo esc_html(get_theme_mod('imaani_phone', '+233 595 959595')); ?></a>
+      <span class="utility-bar__sep" aria-hidden="true">·</span>
+      <a href="mailto:<?php echo esc_attr(get_theme_mod('imaani_email', 'info@imaanihomes.com')); ?>"><?php echo esc_html(get_theme_mod('imaani_email', 'info@imaanihomes.com')); ?></a>
+    </span>
+  </div>
+</div>
+
 <header class="site-header" id="site-header">
   <div class="container site-header__row">
     <div class="site-brand">
       <?php if (has_custom_logo()) : the_custom_logo(); else : ?>
         <a class="site-brand__text" href="<?php echo esc_url(home_url('/')); ?>">
           <span class="site-brand__name">Imaani Homes</span>
-          <span class="site-brand__tagline"><?php echo esc_html(get_theme_mod('imaani_tagline', 'Where Elegance Meets Exclusivity')); ?></span>
         </a>
       <?php endif; ?>
     </div>

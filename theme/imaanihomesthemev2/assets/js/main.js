@@ -35,8 +35,6 @@
       };
       var start = function () { timer = setInterval(function () { show(idx + 1); }, 5000); };
       var stop = function () { clearInterval(timer); };
-      rotator.addEventListener('mouseenter', stop);
-      rotator.addEventListener('mouseleave', start);
       rotator.addEventListener('focusin', stop);
       rotator.addEventListener('focusout', start);
       start();

@@ -6,7 +6,7 @@ add_action('wp_enqueue_scripts', function () {
     $js  = IMAANI_DIR . '/assets/js/main.js';
 
     wp_enqueue_style('imaani-fonts',
-        'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap',
+        'https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&display=swap',
         [], null);
     wp_enqueue_style('imaani-main', IMAANI_URI . '/assets/css/main.css', ['imaani-fonts'], file_exists($css) ? filemtime($css) : IMAANI_VERSION);
     wp_enqueue_script('imaani-main', IMAANI_URI . '/assets/js/main.js', [], file_exists($js) ? filemtime($js) : IMAANI_VERSION, true);
