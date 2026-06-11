@@ -8,7 +8,7 @@ $alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-
 ?>
 <aside class="blog-panel" aria-label="Featured developments">
 
-  <a class="ad-card<?php echo $reg_img ? '' : ' ad-card--plain'; ?>" href="https://regalia.imaanihomes.com" target="_blank" rel="noopener">
+  <a class="ad-card<?php echo $reg_img ? '' : ' ad-card--plain'; ?>" href="<?php echo esc_url(imaani_utm_url('https://regalia.imaanihomes.com')); ?>" target="_blank" rel="noopener">
     <div class="ad-card__media" aria-hidden="true"><?php echo $reg_img; // phpcs:ignore ?></div>
     <div class="ad-card__scrim" aria-hidden="true"></div>
     <div class="ad-card__body">
@@ -19,7 +19,7 @@ $alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-
     </div>
   </a>
 
-  <a class="ad-card<?php echo $alx_img ? '' : ' ad-card--plain'; ?>" href="<?php echo esc_url(home_url('/alexis-residence/')); ?>">
+  <a class="ad-card<?php echo $alx_img ? '' : ' ad-card--plain'; ?>" href="<?php echo esc_url(imaani_utm_url(home_url('/alexis-residence/'))); ?>">
     <div class="ad-card__media" aria-hidden="true"><?php echo $alx_img; // phpcs:ignore ?></div>
     <div class="ad-card__scrim" aria-hidden="true"></div>
     <div class="ad-card__body">
@@ -30,7 +30,7 @@ $alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-
     </div>
   </a>
 
-  <a class="ad-card ad-card--consult" href="<?php echo esc_url(home_url('/contact/')); ?>">
+  <a class="ad-card ad-card--consult" href="<?php echo esc_url(imaani_utm_url(home_url('/contact/'))); ?>">
     <div class="ad-card__body">
       <span class="ad-card__eyebrow">Private Consultation</span>
       <span class="ad-card__title">Talk to our team</span>

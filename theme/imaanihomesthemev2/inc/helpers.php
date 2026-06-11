@@ -115,3 +115,32 @@ function imaani_logo_by_slug(string $slug, string $class = ''): string {
         'alt'   => 'Imaani Homes',
     ]);
 }
+
+/**
+ * Appends organic-blog UTM tags to an ad/destination URL.
+ * utm_campaign=organic-blog · utm_source={current page/post URL} · utm_medium=sidebar-ad
+ * The source is the URL the click originated from (the post/page being viewed),
+ * so leads can be traced to the exact article that drove them.
+ */
+function imaani_utm_url(string $url, string $medium = 'sidebar-ad'): string {
+    // Resolve the canonical URL of the current view.
+    if (is_singular()) {
+        $source = get_permalink(get_queried_object_id()) ?: home_url('/');
+    } elseif (is_front_page()) {
+        $source = home_url('/');
+    } elseif (is_home()) {
+        // Blog posts index
+        $blog_id = (int) get_option('page_for_posts');
+        $source  = $blog_id ? (get_permalink($blog_id) ?: home_url('/blog/')) : home_url('/blog/');
+    } elseif (is_category() || is_tag() || is_tax() || is_archive()) {
+        $source = home_url(add_query_arg([], $GLOBALS['wp']->request ? trailingslashit($GLOBALS['wp']->request) : ''));
+    } else {
+        $source = home_url(add_query_arg([], $GLOBALS['wp']->request ?? ''));
+    }
+    $args = [
+        'utm_campaign' => 'organic-blog',
+        'utm_source'   => $source,   // add_query_arg url-encodes values
+        'utm_medium'   => $medium,
+    ];
+    return add_query_arg($args, $url);
+}
