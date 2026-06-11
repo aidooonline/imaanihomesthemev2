@@ -23,7 +23,7 @@ Native meta boxes (no ACF dependency): status badge (Now Selling / Sold Out), lo
 ## URL preservation
 - Permalinks: `/%category%/%postname%/` (match prod; fix staging first — see 03).
 - No CPTs introduced for existing content → zero rewrite changes for pages/posts/archives.
-- Portfolio leftovers: pending Stephen's decision (recommended 301 → `/projects/` via small mu-plugin or WPCode snippet, not theme code).
+- Portfolio URLs: **preserved** — theme registers `portfolio` CPT + `portfolio-category` taxonomy with rewrites matching current structure; 6 entries migrated (see 03).
 
 ## Integrations preserved
 - LeadCapture Client forms — verify event capture end-to-end after rebuild.
@@ -39,7 +39,9 @@ Native meta boxes (no ACF dependency): status badge (Now Selling / Sold Out), lo
 ## Sprint 1 scope (next)
 Theme bootstrap: scaffold, Vite pipeline, tokens → CSS custom properties, header/footer/menu, front-page hero with locked H1, deploy to staging, visual sign-off from Stephen.
 
-## Open decisions for Stephen (blocking none of Sprint 1)
-1. Portfolio URL handling (301 vs 410 vs 404).
-2. Performance stack: WP Rocket vs Performance Lab modules.
-3. Staging hardening: tick "Discourage search engines" (currently **no noindex meta on `/test/`** — confirmed 11 Jun) and optional Basic Auth.
+## Decisions (resolved 11 Jun)
+1. Portfolio URLs: recreate same structure via theme CPT (see 03).
+2. Performance plugins: **deactivated during build** (done on staging via REST, verified: Performance Lab + all 6 modules, Image Optimizer, Performant Translations inactive; WP Rocket already inactive). Stephen decides reactivation post-build.
+3. Staging noindex: yes — **Stephen action:** tick Settings → Reading → "Discourage search engines" on /test/ (not exposed via REST).
+4. Home H1: new theme ships `Top Apartments for sale in Ghana` as the H1 (prod currently has none — this is a build goal).
+5. Project stats: sourced from live content → `docs/07-verified-stats.md`. Remaining gaps need `regalia.imaanihomes.com` added to the network allowlist.

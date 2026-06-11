@@ -3,7 +3,7 @@
 > Read this first when resuming work. Combined with `docs/00-spec.md`, `docs/01-sprint-plan.md`,
 > and `docs/02-design-system.md`, this is the complete project state.
 
-**Last updated:** 11 June 2026 — Sprint 0 inventory complete
+**Last updated:** 11 June 2026 — Sprint 0 complete; decisions locked; staging prepped (Yoast active, perf plugins off)
 
 ## Where we are
 
@@ -18,9 +18,16 @@
 - WP application password created on staging: username `imaanadmin` (Stephen sends the password directly in chat — never store credentials in this repo)
 
 ### Immediately next
-1. Stephen reviews `docs/03`–`06` and decides the three open items in `06-architecture.md` (portfolio URLs, perf stack, staging hardening)
-2. Fix staging permalinks to `/%category%/%postname%/` and reactivate Yoast on staging (drift found — see 03/05)
-3. Sprint 1: theme bootstrap (scaffold, Vite, tokens, header/footer, front-page hero with locked H1)
+1. **Stephen (2 mins, wp-admin on /test/):** set Permalinks to Custom `/%category%/%postname%/`; tick Settings → Reading → Discourage search engines
+2. **Stephen:** add `regalia.imaanihomes.com` to Claude network allowlist (Capabilities → Code execution) so remaining Regalia stats can be crawled (`docs/07-verified-stats.md` gaps)
+3. Sprint 1: theme bootstrap (scaffold, Vite, tokens, header/footer/menu, front-page hero with locked H1, portfolio CPT registration)
+
+### Decisions locked 11 Jun (Stephen)
+- Portfolio URLs recreated via theme CPT (same structure) — see 03
+- Perf plugins deactivated during build (done + verified on staging); reactivation is Stephen's call post-build
+- Staging gets noindex (test folder); prod is the real target
+- New H1 `Top Apartments for sale in Ghana` is a build goal (prod currently has no H1)
+- Project stats sourced from live content → `docs/07-verified-stats.md`
 
 ### Sprint 0 verification log (11 Jun 2026)
 - Network: `curl https://imaanihomes.com/test/wp-json/` → 200 ✓

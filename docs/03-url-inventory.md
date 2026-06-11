@@ -54,7 +54,7 @@ Indexed but demo content from the current commercial theme:
 - 3 `/portfolio-category/...` archives
 - `?liquid-header=header`, `?liquid-footer=footer`
 
-These CPTs disappear when the Liquid/ArcHub theme + plugins are removed. Options: (a) 410 them, (b) 301 to `/projects/`, (c) leave to 404. **Recommendation: 301 the portfolio URLs to `/projects/`** since they carry no real content but may have residual index presence. Not actioned — awaiting Stephen.
+These CPTs disappear when the Liquid/ArcHub theme + plugins are removed. **Stephen's direction: recreate the same URL structure.** Plan: register a `portfolio` CPT in the new theme with identical rewrite (`/portfolio/%postname%/`, archive `/portfolios/`, taxonomy `portfolio-category`) and migrate the 6 entries so all URLs resolve. Note: current entries are Liquid-theme demo content (e.g. "Data Analysis" — finance demo, verified live). Recommend repurposing them as real Imaani content (or noindexing) during Sprint 2; URLs preserved either way.
 
 ## Staging discrepancy — MUST FIX BEFORE PARITY TESTING
-Staging post URLs resolve as `/test/{postname}/` (no category base) while prod uses `/%category%/%postname%/`. Set staging Permalinks to **Custom: `/%category%/%postname%/`** to match prod.
+Staging post URLs resolve as `/test/{postname}/` (no category base) while prod uses `/%category%/%postname%/`. Set staging Permalinks to **Custom: `/%category%/%postname%/`** to match prod. Attempted via REST 11 Jun — not exposed; **Stephen: wp-admin → Settings → Permalinks on /test/** (one-time). Yoast was reactivated on staging via REST same day (verified active).
