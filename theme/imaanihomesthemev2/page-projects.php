@@ -10,7 +10,7 @@ get_header();
   </div>
 </section>
 <section class="section">
-  <div class="container">
+  <div class="container--wide container">
     <div class="project-grid project-grid--index">
       <?php foreach (imaani_projects() as $slug => $p) {
           get_template_part('parts/project-card', null, ['project' => $p, 'key' => $slug]);

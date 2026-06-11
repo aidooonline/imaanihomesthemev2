@@ -75,7 +75,7 @@ usort($slides, fn($a, $b) => ($b['img'] ? 1 : 0) <=> ($a['img'] ? 1 : 0));
 </section>
 
 <section class="section section--tint">
-  <div class="container">
+  <div class="container--wide container">
     <p class="eyebrow">Our Projects</p>
     <h2 class="section__title">Four Addresses, One Standard</h2>
     <div class="project-grid">
