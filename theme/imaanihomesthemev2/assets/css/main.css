@@ -313,7 +313,7 @@ ul, ol { padding-left: 1.2em; }
 @media (max-width: 880px) { .project-layout { grid-template-columns: 1fr; } .project-aside { position: static; } }
 
 /* ---------- Blog ---------- */
-.blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: var(--space-10); align-items: start; }
+.blog-layout { display: grid; grid-template-columns: 1fr 330px; gap: var(--space-10); align-items: start; }
 .blog-list { display: grid; gap: var(--space-6); }
 .post-card { display: grid; grid-template-columns: 300px 1fr; background: var(--white); border: 1px solid var(--line); overflow: hidden; transition: box-shadow var(--ease), border-color var(--ease); }
 .post-card:hover { box-shadow: var(--shadow); border-color: var(--gold-soft); }
@@ -336,7 +336,7 @@ ul, ol { padding-left: 1.2em; }
 /* Image-backed ad cards */
 .ad-card {
   position: relative; display: block; overflow: hidden;
-  min-height: 320px; color: #fff; isolation: isolate;
+  min-height: 352px; color: #fff; isolation: isolate;
   border: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--ease), transform var(--ease);
@@ -388,7 +388,7 @@ ul, ol { padding-left: 1.2em; }
   background: radial-gradient(130% 130% at 80% 0%, var(--brand-dark) 0%, var(--brand-deep) 70%);
   border-color: var(--brand-deep);
 }
-.ad-card--consult { min-height: 220px; }
+.ad-card--consult { min-height: 242px; }
 
 .post-hero { margin-top: var(--space-6); }
 .entry-content { max-width: 70ch; }

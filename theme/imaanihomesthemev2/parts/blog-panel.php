@@ -30,4 +30,13 @@ $alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-
     </div>
   </a>
 
+  <a class="ad-card ad-card--consult" href="<?php echo esc_url(home_url('/contact/')); ?>">
+    <div class="ad-card__body">
+      <span class="ad-card__eyebrow">Private Consultation</span>
+      <span class="ad-card__title">Talk to our team</span>
+      <span class="ad-card__text">Tell us what you're looking for — we respond within 24 hours.</span>
+      <span class="ad-card__cta">Book a Consultation <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+
 </aside>
