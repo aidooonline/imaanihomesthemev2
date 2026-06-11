@@ -1,20 +1,42 @@
-<?php defined('ABSPATH') || exit; ?>
+<?php
+defined('ABSPATH') || exit;
+$projects = imaani_projects();
+$regalia  = $projects['regalia'] ?? null;
+$alexis   = $projects['alexis-residence'] ?? null;
+$reg_img  = $regalia ? imaani_project_image('regalia', $regalia, 'imaani-card') : '';
+$alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-card') : '';
+?>
 <aside class="blog-panel" aria-label="Featured developments">
-  <div class="blog-panel__card">
-    <p class="eyebrow">Now Selling</p>
-    <h3 class="blog-panel__title">Regalia</h3>
-    <p class="blog-panel__text">Airport Residential's new standard — studios to penthouses, rooftop infinity pool.</p>
-    <a class="btn btn--primary btn--sm" href="https://regalia.imaanihomes.com" target="_blank" rel="noopener">Explore Regalia</a>
-  </div>
-  <div class="blog-panel__card">
-    <p class="eyebrow">Over 90% Sold</p>
-    <h3 class="blog-panel__title">Alexis Residence</h3>
-    <p class="blog-panel__text">Boutique apartments in Tesano — only 3 two-bedroom units remaining.</p>
-    <a class="btn btn--outline btn--sm" href="<?php echo esc_url(home_url('/alexis-residence/')); ?>">View Alexis</a>
-  </div>
-  <div class="blog-panel__card blog-panel__card--consult">
-    <h3 class="blog-panel__title">Talk to our team</h3>
-    <p class="blog-panel__text">Private consultations — response within 24 hours.</p>
-    <a class="btn btn--ghost btn--sm" href="<?php echo esc_url(home_url('/contact/')); ?>">Book a Consultation</a>
-  </div>
+
+  <a class="ad-card<?php echo $reg_img ? '' : ' ad-card--plain'; ?>" href="https://regalia.imaanihomes.com" target="_blank" rel="noopener">
+    <div class="ad-card__media" aria-hidden="true"><?php echo $reg_img; // phpcs:ignore ?></div>
+    <div class="ad-card__scrim" aria-hidden="true"></div>
+    <div class="ad-card__body">
+      <span class="ad-card__eyebrow">Now Selling</span>
+      <span class="ad-card__title">Regalia</span>
+      <span class="ad-card__text">Airport Residential's new standard — studios to penthouses, crowned by a rooftop infinity pool.</span>
+      <span class="ad-card__cta">Explore Regalia <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+
+  <a class="ad-card<?php echo $alx_img ? '' : ' ad-card--plain'; ?>" href="<?php echo esc_url(home_url('/alexis-residence/')); ?>">
+    <div class="ad-card__media" aria-hidden="true"><?php echo $alx_img; // phpcs:ignore ?></div>
+    <div class="ad-card__scrim" aria-hidden="true"></div>
+    <div class="ad-card__body">
+      <span class="ad-card__eyebrow">Over 90% Sold</span>
+      <span class="ad-card__title">Alexis Residence</span>
+      <span class="ad-card__text">Boutique apartments in Tesano — only three two-bedroom residences remaining.</span>
+      <span class="ad-card__cta">View Alexis <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+
+  <a class="ad-card ad-card--consult" href="<?php echo esc_url(home_url('/contact/')); ?>">
+    <div class="ad-card__body">
+      <span class="ad-card__eyebrow">Private Consultation</span>
+      <span class="ad-card__title">Talk to our team</span>
+      <span class="ad-card__text">Tell us what you're looking for — we respond within 24 hours.</span>
+      <span class="ad-card__cta">Book a Consultation <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+
 </aside>
