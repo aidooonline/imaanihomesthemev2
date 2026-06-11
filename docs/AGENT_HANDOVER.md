@@ -1,6 +1,8 @@
 # AGENT_HANDOVER — imaanihomesthemev2
 
-**State as of 11 June 2026:** theme complete and verified on a local WordPress 6.8.3 mirror of staging. Not yet activated on staging (requires wp-admin ZIP upload — no REST path exists for theme install/activate). See docs/INSTALL.md.
+**State as of 11 June 2026 (later):** theme ACTIVATED and LIVE on staging. Post-activation fatal traced to ArcHub companion plugins (archub-core, archub-elementor-addons, archub-portfolio) which require the ArcHub theme — all three deactivated via REST, front end recovered. Portfolio migration script run against staging: all 10 /portfolio* URLs 200. Full page matrix 14/14 200 live. Staging noindex confirmed active. PHP 8.4.21 on staging.
+
+**Note:** the legacy portfolio entries already existed in the staging DB (created by ArcHub Portfolio under the same `liquid-portfolio` CPT key) — the theme's identical CPT registration picked them up seamlessly; the script confirmed rather than recreated them.
 
 ## Architecture
 
@@ -70,8 +72,7 @@ theme/imaanihomesthemev2/
 
 ## Outstanding (blocked on Stephen)
 
-1. wp-admin on /test/: Permalinks → Custom `/%category%/%postname%/`; Reading → Discourage search engines
-2. Upload + activate `deploy/imaanihomesthemev2.zip`, save Permalinks, run `deploy/post-activate.py` (agent can run it once activated)
+1. wp-admin on /test/: Permalinks → Custom `/%category%/%postname%/` — STILL PENDING (posts currently 301 from category-base URLs; prod uses the category base). Reading noindex: DONE ✓
 3. Add `regalia.imaanihomes.com` to Claude network allowlist → agent crawls remaining Regalia stats (totals/prices/completion)
 4. Supply: verified units-delivered total, Alexis unit specs (`imaani_units_json`), Regalia/Alexis starting prices, real testimonials, founder name
 5. Decide: LeadCapture wiring for form submissions (hook point ready), perf-plugin reactivation, repurpose-vs-noindex for the 6 demo portfolio entries
