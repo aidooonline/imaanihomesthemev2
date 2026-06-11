@@ -13,6 +13,23 @@ $about_legacy  = 'builder' === get_post_meta(get_the_ID(), '_elementor_edit_mode
     <p class="page-head__lead"><?php echo esc_html(get_theme_mod('imaani_tagline', 'Where Elegance Meets Exclusivity')); ?> — four developments in Accra's most established neighbourhoods, two already sold out and delivered on time.</p>
   </div>
 </section>
+
+<?php
+// One clean image: the page's featured image, else the first project photo available.
+$about_img = has_post_thumbnail() ? get_the_post_thumbnail(null, 'imaani-hero', ['loading' => 'eager']) : '';
+if (!$about_img) {
+    foreach (imaani_projects() as $k => $proj) {
+        $about_img = imaani_project_image($k, $proj, 'imaani-hero');
+        if ($about_img) break;
+    }
+}
+if ($about_img) : ?>
+<section class="about-visual">
+  <div class="container">
+    <figure class="about-visual__frame"><?php echo $about_img; // phpcs:ignore ?></figure>
+  </div>
+</section>
+<?php endif; ?>
 <?php if (trim($about_content) && !$about_legacy) : ?>
 <section class="section">
   <div class="container container--narrow entry-content flow"><?php the_content(); ?></div>

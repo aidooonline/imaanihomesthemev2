@@ -14,11 +14,16 @@
 <div class="utility-bar">
   <div class="container utility-bar__row">
     <span class="utility-bar__tagline"><?php echo esc_html(get_theme_mod('imaani_tagline', 'Where Elegance Meets Exclusivity')); ?></span>
-    <span class="utility-bar__contact">
-      <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', get_theme_mod('imaani_phone', '+233 595 959595'))); ?>"><?php echo esc_html(get_theme_mod('imaani_phone', '+233 595 959595')); ?></a>
-      <span class="utility-bar__sep" aria-hidden="true">·</span>
-      <a href="mailto:<?php echo esc_attr(get_theme_mod('imaani_email', 'info@imaanihomes.com')); ?>"><?php echo esc_html(get_theme_mod('imaani_email', 'info@imaanihomes.com')); ?></a>
-    </span>
+    <div class="marquee" aria-label="Imaani Homes credentials">
+      <div class="marquee__track">
+        <?php for ($pass = 0; $pass < 2; $pass++) : ?>
+          <?php foreach (imaani_marquee_items() as $item) : ?>
+            <span class="marquee__item"<?php echo $pass ? ' aria-hidden="true"' : ''; ?>><?php echo esc_html($item); ?></span>
+            <span class="marquee__dot" aria-hidden="true">◆</span>
+          <?php endforeach; ?>
+        <?php endfor; ?>
+      </div>
+    </div>
   </div>
 </div>
 

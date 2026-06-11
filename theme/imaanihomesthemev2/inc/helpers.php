@@ -66,5 +66,36 @@ function imaani_project_image(string $key, array $p, string $size = 'imaani-card
             return get_the_post_thumbnail($page, $size, ['loading' => 'lazy']);
         }
     }
+    // Final fallback: a media-library attachment by slug (cached)
+    if (!empty($p['media_slug'])) {
+        $tkey = 'imaani_media_' . md5($p['media_slug']);
+        $att_id = get_transient($tkey);
+        if (false === $att_id) {
+            $found = get_posts(['post_type' => 'attachment', 'name' => $p['media_slug'], 'post_status' => 'inherit', 'posts_per_page' => 1, 'fields' => 'ids']);
+            $att_id = $found ? (int) $found[0] : 0;
+            set_transient($tkey, $att_id, DAY_IN_SECONDS);
+        }
+        if ($att_id) {
+            $img = wp_get_attachment_image($att_id, $size, false, ['loading' => 'lazy']);
+            if ($img) return $img;
+        }
+    }
     return '';
+}
+
+/** Credibility marquee items — Customizer override, else verified facts. */
+function imaani_marquee_items(): array {
+    $raw = trim((string) get_theme_mod('imaani_marquee_items', ''));
+    if ('' !== $raw) {
+        return array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $raw))));
+    }
+    return [
+        'Est. 2019 in Accra',
+        'JAK Royale — Sold Out',
+        'The Ivy Townhomes — Sold Out',
+        'Alexis Residence — Over 90% Sold',
+        'Regalia — Now Selling at Airport Residential',
+        '100% On-Time Delivery',
+        'Trusted by Diaspora Buyers Worldwide',
+    ];
 }

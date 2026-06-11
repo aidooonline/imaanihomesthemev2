@@ -23,6 +23,14 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         $wp_customize->add_control($id, ['label' => $label, 'section' => 'imaani_stats', 'type' => 'text']);
     }
 
+    $wp_customize->add_setting('imaani_marquee_items', ['default' => '', 'sanitize_callback' => 'sanitize_textarea_field']);
+    $wp_customize->add_control('imaani_marquee_items', [
+        'label'       => 'Credibility marquee (one item per line)',
+        'description' => 'Scrolls in the top bar. Leave blank for the built-in verified list.',
+        'section'     => 'imaani_stats',
+        'type'        => 'textarea',
+    ]);
+
     // ---- Testimonials ----
     $wp_customize->add_section('imaani_testimonials', ['title' => 'Testimonials', 'panel' => 'imaani']);
     $wp_customize->add_setting('imaani_testimonials_raw', ['default' => '', 'sanitize_callback' => 'sanitize_textarea_field']);
