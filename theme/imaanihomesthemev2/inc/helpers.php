@@ -49,3 +49,22 @@ function imaani_faq_items(): array {
 function imaani_blog_panel(): void {
     get_template_part('parts/blog-panel');
 }
+
+/**
+ * Resolves the image for a project card/hero card.
+ * Order: Customizer media override → linked page's featured image → '' (gradient fallback).
+ */
+function imaani_project_image(string $key, array $p, string $size = 'imaani-card'): string {
+    $mod_id = (int) get_theme_mod('imaani_img_' . str_replace('-', '_', $key), 0);
+    if ($mod_id) {
+        $img = wp_get_attachment_image($mod_id, $size, false, ['loading' => 'lazy']);
+        if ($img) return $img;
+    }
+    if (empty($p['external'])) {
+        $page = get_page_by_path(trim((string) parse_url($p['url'], PHP_URL_PATH), '/'));
+        if ($page && has_post_thumbnail($page)) {
+            return get_the_post_thumbnail($page, $size, ['loading' => 'lazy']);
+        }
+    }
+    return '';
+}

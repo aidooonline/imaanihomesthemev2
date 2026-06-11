@@ -10,6 +10,8 @@ Everything an admin edits lives in **Appearance → Customize → Imaani Homes**
 | Phone / email / address / tagline | Customize → Company Details | Feeds header, footer, contact page, schema, and form recipient |
 | "Starting from $…" prices | Customize → Project Pricing | Regalia + Alexis fields. Blank = price line hidden. Enter verified prices only |
 | Logo | Customize → Site Identity → Logo | Falls back to styled text brand if unset |
+| Project card/hero images | Page editor → Featured Image (Alexis/Ivy/JAK), or Customize → Project Images | Customizer slot overrides the featured image; it's also the only image slot for Regalia (no page exists). Hero rotator, project cards, and the project-page banner all use these |
+| Extra page content (text + images) | Page editor (Alexis/Ivy/JAK/About) | Anything added in the normal WordPress editor renders below the intro section. Legacy Elementor content is intentionally not rendered — clear it before editing these pages in the editor |
 | Menus | Appearance → Menus | `primary` and `footer` locations |
 | Project facts (status, blurb, amenities) | `inc/projects.php` in the theme | Code-versioned on purpose — these are marketing-critical claims. Edit via repo + redeploy |
 | Alexis unit types/sizes | Page → Custom Fields → `imaani_units_json` | JSON array: `[{"type":"2-Bedroom","size":"91–102 m²","features":"…"}]`. Renders the unit grid once filled |

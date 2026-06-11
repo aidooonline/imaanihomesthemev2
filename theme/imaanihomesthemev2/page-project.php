@@ -1,6 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 get_header();
+the_post();
 $slug = get_post_field('post_name');
 $p = imaani_project($slug);
 if (!$p) { ?>
@@ -30,6 +31,15 @@ $units = $units ? json_decode($units, true) : ($p['units'] ?? []);
   <div class="container project-layout">
     <div class="project-main">
       <p class="lead"><?php echo esc_html($p['blurb']); ?></p>
+
+      <?php
+      // Editor-added content (WYSIWYG). Legacy Elementor markup is intentionally skipped.
+      $extra = get_the_content();
+      $is_legacy = 'builder' === get_post_meta(get_the_ID(), '_elementor_edit_mode', true)
+          || str_contains($extra, 'elementor-');
+      if (trim($extra) && !$is_legacy) : ?>
+        <div class="entry-content flow"><?php the_content(); ?></div>
+      <?php endif; ?>
 
       <?php if (!$sold && !empty($p['amenities'])) : ?>
         <h2>Featured Amenities</h2>

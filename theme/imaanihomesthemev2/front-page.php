@@ -22,12 +22,7 @@ $projects = imaani_projects();
            href="<?php echo esc_url($p['external'] ? $p['url'] : home_url($p['url'])); ?>"
            <?php echo $p['external'] ? 'target="_blank" rel="noopener"' : ''; ?>>
           <div class="hero-card__media" aria-hidden="true">
-            <?php
-            $page = get_page_by_path(ltrim((string) parse_url($p['url'], PHP_URL_PATH), '/'));
-            if ($page && has_post_thumbnail($page)) {
-                echo get_the_post_thumbnail($page, 'imaani-card', ['loading' => 'lazy']);
-            }
-            ?>
+            <?php echo imaani_project_image($slug, $p); // phpcs:ignore ?>
           </div>
           <div class="hero-card__body">
             <?php echo imaani_badge($p['status'], $p['badge']); // phpcs:ignore ?>
@@ -80,7 +75,7 @@ $projects = imaani_projects();
     <h2 class="section__title">Four Addresses, One Standard</h2>
     <div class="project-grid">
       <?php foreach ($projects as $slug => $p) : ?>
-        <?php get_template_part('parts/project-card', null, ['project' => $p]); ?>
+        <?php get_template_part('parts/project-card', null, ['project' => $p, 'key' => $slug]); ?>
       <?php endforeach; ?>
     </div>
   </div>

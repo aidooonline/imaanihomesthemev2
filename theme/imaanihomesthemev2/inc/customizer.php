@@ -56,6 +56,20 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         $wp_customize->add_control($id, ['label' => $label, 'section' => 'imaani_contact', 'type' => 'text']);
     }
 
+
+    // ---- Project card images (used when the page has no featured image; Regalia has no page) ----
+    $wp_customize->add_section('imaani_images', ['title' => 'Project Images', 'panel' => 'imaani']);
+    foreach (['regalia' => 'Regalia', 'alexis-residence' => 'Alexis Residence', 'the-ivy' => 'The Ivy', 'jak-royale' => 'JAK Royale'] as $key => $label) {
+        $id = 'imaani_img_' . str_replace('-', '_', $key);
+        $wp_customize->add_setting($id, ['default' => 0, 'sanitize_callback' => 'absint']);
+        $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, $id, [
+            'label' => $label . ' — card/hero image',
+            'description' => 'Overrides (or supplies) the image shown on homepage hero cards and project cards.',
+            'section' => 'imaani_images',
+            'mime_type' => 'image',
+        ]));
+    }
+
     // ---- Project pricing (shown only when set — verified numbers only) ----
     $wp_customize->add_section('imaani_pricing', ['title' => 'Project Pricing', 'panel' => 'imaani']);
     foreach (['regalia' => 'Regalia', 'alexis' => 'Alexis Residence'] as $key => $label) {

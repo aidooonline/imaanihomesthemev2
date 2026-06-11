@@ -12,8 +12,8 @@ get_header();
 <section class="section">
   <div class="container">
     <div class="project-grid project-grid--index">
-      <?php foreach (imaani_projects() as $p) {
-          get_template_part('parts/project-card', null, ['project' => $p]);
+      <?php foreach (imaani_projects() as $slug => $p) {
+          get_template_part('parts/project-card', null, ['project' => $p, 'key' => $slug]);
       } ?>
     </div>
   </div>

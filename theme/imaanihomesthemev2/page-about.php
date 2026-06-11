@@ -1,6 +1,10 @@
 <?php
 defined('ABSPATH') || exit;
 get_header();
+the_post();
+$about_content = get_the_content();
+$about_legacy  = 'builder' === get_post_meta(get_the_ID(), '_elementor_edit_mode', true)
+    || str_contains($about_content, 'elementor-');
 ?>
 <section class="page-head">
   <div class="container">
@@ -9,6 +13,11 @@ get_header();
     <p class="page-head__lead"><?php echo esc_html(get_theme_mod('imaani_tagline', 'Where Elegance Meets Exclusivity')); ?> — four developments in Accra's most established neighbourhoods, two already sold out and delivered on time.</p>
   </div>
 </section>
+<?php if (trim($about_content) && !$about_legacy) : ?>
+<section class="section">
+  <div class="container container--narrow entry-content flow"><?php the_content(); ?></div>
+</section>
+<?php else : ?>
 <section class="section">
   <div class="container container--narrow flow">
     <p class="lead">Imaani Homes builds luxury residential addresses in Accra — JAK Royale, The Ivy Townhomes, Alexis Residence in Tesano, and Regalia at Airport Residential Area.</p>
@@ -16,6 +25,7 @@ get_header();
     <p>We build with one finish specification per building. No tiered quality, no compromised corners. From studio to penthouse, every resident shares the same standard, the same amenities, the same address.</p>
   </div>
 </section>
+<?php endif; ?>
 <section class="section founder">
   <div class="container founder__inner">
     <span class="founder__rule" aria-hidden="true"></span>

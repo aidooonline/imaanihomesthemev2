@@ -1,15 +1,13 @@
 <?php
 defined('ABSPATH') || exit;
 $p = $args['project'] ?? null;
+$key = $args['key'] ?? '';
 if (!$p) return;
 $href = $p['external'] ? $p['url'] : home_url($p['url']);
-$page = get_page_by_path(trim((string) parse_url($p['url'], PHP_URL_PATH), '/'));
 ?>
 <a class="project-card project-card--<?php echo esc_attr($p['status']); ?>" href="<?php echo esc_url($href); ?>" <?php echo $p['external'] ? 'target="_blank" rel="noopener"' : ''; ?>>
   <div class="project-card__media">
-    <?php if ($page && has_post_thumbnail($page)) {
-        echo get_the_post_thumbnail($page, 'imaani-card', ['loading' => 'lazy']);
-    } ?>
+    <?php echo $key ? imaani_project_image($key, $p) : ''; // phpcs:ignore ?>
     <?php echo imaani_badge($p['status'], $p['badge']); // phpcs:ignore ?>
   </div>
   <div class="project-card__body">
