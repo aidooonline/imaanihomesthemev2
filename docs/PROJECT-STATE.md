@@ -3,7 +3,7 @@
 > Read this first when resuming work. Combined with `docs/00-spec.md`, `docs/01-sprint-plan.md`,
 > and `docs/02-design-system.md`, this is the complete project state.
 
-**Last updated:** 11 June 2026 — Sprint 0 complete; decisions locked; staging prepped (Yoast active, perf plugins off)
+**Last updated:** 11 June 2026 — BUILD COMPLETE. Theme verified locally (28/28 URLs, forms end-to-end, debug clean). Awaiting Stephen: ZIP upload + activation on staging, then run deploy/post-activate.py. See docs/AGENT_HANDOVER.md for full state and docs/INSTALL.md for steps.
 
 ## Where we are
 

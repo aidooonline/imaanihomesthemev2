@@ -1,0 +1,4 @@
+---
+deployment:
+  tasks:
+    - /bin/cp -a /home/imaaniho/repos/imaanihomesthemev2/theme/imaanihomesthemev2 /home/imaaniho/public_html/test/wp-content/themes/

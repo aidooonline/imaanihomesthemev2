@@ -1,0 +1,21 @@
+<?php
+defined('ABSPATH') || exit;
+get_header();
+?>
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Our Developments</p>
+    <h1 class="page-head__title">Four Addresses, One Standard</h1>
+    <p class="page-head__lead">Two sold out and delivered on time. Two now selling. Every address built to the same finish specification, in neighbourhoods that hold their value.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="project-grid project-grid--index">
+      <?php foreach (imaani_projects() as $p) {
+          get_template_part('parts/project-card', null, ['project' => $p]);
+      } ?>
+    </div>
+  </div>
+</section>
+<?php get_template_part('parts/cta-final'); get_footer(); ?>
