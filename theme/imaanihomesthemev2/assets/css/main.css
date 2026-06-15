@@ -773,3 +773,9 @@ ul, ol { padding-left: 1.2em; }
 .abx-answer__inner { max-width: 900px; }
 .abx-answer__lead { font-size: var(--text-lg); line-height: 1.7; color: var(--ink); margin: 0; font-weight: 300; }
 .abx-answer__lead strong { font-family: var(--font-display); font-weight: 400; color: var(--brand); display:block; margin-bottom: var(--space-2); font-size: 1.1em; }
+
+/* ============ Disclaimer (Investors) ============ */
+.abx-disclaimer { background: var(--page-bg); border-top: 1px solid var(--abx-line); padding-block: clamp(2rem, 3.5vw, 2.75rem); }
+.abx-disclaimer__inner { max-width: 900px; }
+.abx-disclaimer .abx-eyebrow { margin-bottom: var(--space-3); color: var(--ink-soft); }
+.abx-disclaimer__text { font-size: var(--text-xs); line-height: 1.75; color: var(--ink-soft); margin: 0; }

@@ -409,6 +409,15 @@ if (!$inv_img) {
     </div>
   </section>
 
+
+  <!-- DISCLAIMER -->
+  <section class="abx-disclaimer">
+    <div class="container abx-disclaimer__inner">
+      <span class="abx-eyebrow">Important Notice</span>
+      <p class="abx-disclaimer__text">The figures on this page, including rental yields, occupancy rates, capital appreciation, ROI projections, prices, and tax rates, are indicative estimates based on current prime Accra market conditions and are provided for general information only. They are not guarantees, forecasts, or financial, legal, or tax advice. Actual returns vary with location, unit, market movements, management, and individual circumstances, and past performance does not guarantee future results. Property investment carries risk, including the possible loss of capital. Figures may change without notice. Before making any investment decision, you should seek independent financial, legal, and tax advice and request a written projection specific to the unit and development you are considering. All purchases are governed solely by the terms of the relevant Sales and Purchase Agreement.</p>
+    </div>
+  </section>
+
   <?php get_template_part('parts/cta-final'); ?>
 
 </div>
