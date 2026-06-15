@@ -751,18 +751,19 @@ ul, ol { padding-left: 1.2em; }
 .abx-cta--dark .abx-cta__btn:hover { background: var(--gold); border-color: var(--gold); }
 @media(max-width:680px){ .abx-cta__inner{flex-direction:column; align-items:flex-start;} .abx-cta__btn{width:100%; text-align:center;} }
 
-/* ============ Inline image bands (Investors) ============ */
-.abx-figband { background: var(--white); padding-block: clamp(2rem, 4vw, 3.5rem); }
-.abx-figband--full { padding-block: 0; background: transparent; }
-.abx-figband__frame { margin:0; position:relative; overflow:hidden; }
-.abx-figband:not(.abx-figband--full) .abx-figband__frame { aspect-ratio: 21/9; border:1px solid var(--abx-line); }
-.abx-figband--full .abx-figband__frame { aspect-ratio: 21/8; }
-.abx-figband__frame img { width:100%; height:100%; object-fit:cover; display:block; }
-.abx-figband__cap {
-  position:absolute; left:0; right:0; bottom:0;
-  padding: clamp(1.5rem,3vw,2.5rem) clamp(1.25rem,3vw,2.5rem) clamp(1rem,2vw,1.5rem);
-  font-family: var(--font-display); font-weight:400; font-size: clamp(1.056rem,1vw+.8rem,1.333rem);
-  color:#fff; text-shadow:0 2px 16px rgba(0,0,0,.45);
-  background: linear-gradient(180deg, rgba(20,8,11,0) 0%, rgba(20,8,11,.72) 100%);
+
+/* ============ Full-bleed image bands (Investors) ============ */
+.abx-imgband {
+  position: relative;
+  min-height: clamp(360px, 52vh, 560px);
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  display: flex; align-items: flex-end;
 }
-@media(max-width:680px){ .abx-figband:not(.abx-figband--full) .abx-figband__frame, .abx-figband--full .abx-figband__frame{ aspect-ratio:4/3; } }
+.abx-imgband__scrim { position:absolute; inset:0; background: linear-gradient(180deg, rgba(20,8,11,.15) 0%, rgba(20,8,11,0) 45%, rgba(20,8,11,.70) 100%); }
+.abx-imgband__inner { position:relative; z-index:1; width:100%; padding-block: clamp(2rem, 4vw, 3.25rem); }
+.abx-imgband__cap {
+  font-family: var(--font-display); font-weight:400;
+  font-size: clamp(1.333rem, 1.6vw + .9rem, 2rem); line-height:1.3;
+  color:#fff; margin:0; max-width: 24ch; text-shadow:0 2px 24px rgba(0,0,0,.4);
+}
+@media(max-width:680px){ .abx-imgband{ min-height: 340px; } }

@@ -24,10 +24,11 @@ foreach ($inv_faqs as $qa) {
 echo '<script type="application/ld+json">' . wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
 
 // Resolve a library image by slug for inline visuals
-$abx_pic = function (string $slug, string $alt, string $size = 'imaani-hero') {
+$abx_pic_url = function (string $slug, string $size = 'full'): string {
     $found = get_posts(['post_type' => 'attachment', 'name' => $slug, 'post_status' => 'inherit', 'posts_per_page' => 1, 'fields' => 'ids']);
     if (!$found) return '';
-    return wp_get_attachment_image((int) $found[0], $size, false, ['loading' => 'lazy', 'alt' => $alt]);
+    $src = wp_get_attachment_image_src((int) $found[0], $size);
+    return $src ? $src[0] : '';
 };
 
 $inv_img = has_post_thumbnail() ? get_the_post_thumbnail(null, 'imaani-hero', ['loading' => 'eager', 'class' => 'abx-hero__img']) : '';
@@ -126,15 +127,16 @@ if (!$inv_img) {
   </section>
 
 
+
   <!-- INLINE IMAGE -->
-  <section class="abx-figband">
-    <div class="container">
-      <figure class="abx-figband__frame">
-        <?php echo $abx_pic('alexis-residences_final-stills_orastudio_-interior-_-living-area', 'Luxury living interior at an Imaani Homes development in Accra'); // phpcs:ignore ?>
-        <figcaption class="abx-figband__cap">The standard that attracts premium, USD-paying tenants.</figcaption>
-      </figure>
+  <?php $u = $abx_pic_url('alexis-residences_final-stills_orastudio_-interior-_-living-area'); if ($u) : ?>
+  <section class="abx-imgband" style="background-image:url('<?php echo esc_url($u); ?>')" role="img" aria-label="Luxury living interior at an Imaani Homes development in Accra">
+    <div class="abx-imgband__scrim" aria-hidden="true"></div>
+    <div class="container abx-imgband__inner">
+      <p class="abx-imgband__cap">The standard that attracts premium, USD-paying tenants.</p>
     </div>
   </section>
+  <?php endif; ?>
 
   <!-- YIELDS STATEMENT -->
   <section class="abx-why">
@@ -185,15 +187,16 @@ if (!$inv_img) {
   </section>
 
 
+
   <!-- INLINE IMAGE -->
-  <section class="abx-figband abx-figband--full">
-    <div class="container--wide container">
-      <figure class="abx-figband__frame">
-        <?php echo $abx_pic('14_roof-top-pool-view-2', 'Rooftop pool amenity at an Imaani Homes development'); // phpcs:ignore ?>
-        <figcaption class="abx-figband__cap">Rooftop amenities that command higher nightly and lease rates.</figcaption>
-      </figure>
+  <?php $u = $abx_pic_url('14_roof-top-pool-view-2'); if ($u) : ?>
+  <section class="abx-imgband" style="background-image:url('<?php echo esc_url($u); ?>')" role="img" aria-label="Rooftop pool amenity at an Imaani Homes development">
+    <div class="abx-imgband__scrim" aria-hidden="true"></div>
+    <div class="container abx-imgband__inner">
+      <p class="abx-imgband__cap">Rooftop amenities that command higher nightly and lease rates.</p>
     </div>
   </section>
+  <?php endif; ?>
 
   <!-- DAY ONE / MANAGEMENT FEATURES -->
   <section class="abx-sec abx-sec--stone">
@@ -262,15 +265,16 @@ if (!$inv_img) {
   </section>
 
 
+
   <!-- INLINE IMAGE -->
-  <section class="abx-figband">
-    <div class="container">
-      <figure class="abx-figband__frame">
-        <?php echo $abx_pic('alexis-residences-interior-_-kitchen-area', 'Furnished kitchen interior at an Imaani Homes apartment'); // phpcs:ignore ?>
-        <figcaption class="abx-figband__cap">Furnished, managed, and earning from the day you receive the keys.</figcaption>
-      </figure>
+  <?php $u = $abx_pic_url('alexis-residences-interior-_-kitchen-area'); if ($u) : ?>
+  <section class="abx-imgband" style="background-image:url('<?php echo esc_url($u); ?>')" role="img" aria-label="Furnished kitchen interior at an Imaani Homes apartment">
+    <div class="abx-imgband__scrim" aria-hidden="true"></div>
+    <div class="container abx-imgband__inner">
+      <p class="abx-imgband__cap">Furnished, managed, and earning from the day you receive the keys.</p>
     </div>
   </section>
+  <?php endif; ?>
 
   <!-- ROI TABLES -->
   <section class="abx-sec abx-sec--stone">
@@ -327,15 +331,16 @@ if (!$inv_img) {
   </section>
 
 
+
   <!-- INLINE IMAGE -->
-  <section class="abx-figband abx-figband--full">
-    <div class="container--wide container">
-      <figure class="abx-figband__frame">
-        <?php echo $abx_pic('regalia-residence-aerial', 'Aerial view of Regalia Residence at Airport Residential, Accra'); // phpcs:ignore ?>
-        <figcaption class="abx-figband__cap">Regalia Residence, Airport Residential. Now selling off-plan.</figcaption>
-      </figure>
+  <?php $u = $abx_pic_url('regalia-residence-aerial'); if ($u) : ?>
+  <section class="abx-imgband" style="background-image:url('<?php echo esc_url($u); ?>')" role="img" aria-label="Aerial view of Regalia Residence at Airport Residential, Accra">
+    <div class="abx-imgband__scrim" aria-hidden="true"></div>
+    <div class="container abx-imgband__inner">
+      <p class="abx-imgband__cap">Regalia Residence, Airport Residential. Now selling off-plan.</p>
     </div>
   </section>
+  <?php endif; ?>
 
   <!-- FAQ -->
   <section class="abx-sec">
