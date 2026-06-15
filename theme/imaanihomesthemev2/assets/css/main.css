@@ -736,3 +736,17 @@ ul, ol { padding-left: 1.2em; }
 .abx-table tbody td:first-child { font-weight:500; color: var(--ink); }
 .abx-table tbody td:last-child { font-family: var(--font-display); color: var(--gold-deep); font-size:1.05rem; }
 .abx-table-note { font-size: var(--text-xs); color: var(--ink-soft); margin-top: var(--space-4); font-style:italic; }
+
+/* ============ Inline CTA bands (Investors) ============ */
+.abx-cta { background: var(--white); border-top: 1px solid var(--abx-line); border-bottom: 1px solid var(--abx-line); padding-block: clamp(2.5rem, 4vw, 3.5rem); }
+.abx-cta--dark { background: radial-gradient(140% 160% at 50% -20%, var(--brand-dark) 0%, var(--brand-deep) 70%); border-color: var(--brand-deep); }
+.abx-cta__inner { display:flex; align-items:center; justify-content:space-between; gap: var(--space-8); flex-wrap:wrap; }
+.abx-cta__copy { flex:1 1 420px; }
+.abx-cta .abx-eyebrow { margin-bottom: var(--space-3); }
+.abx-cta--dark .abx-eyebrow { color: var(--gold-soft); }
+.abx-cta__text { font-family: var(--font-display); font-weight:400; font-size: clamp(1.222rem, 1.4vw + .8rem, 1.667rem); line-height:1.35; color: var(--ink); margin:0; max-width: 30ch; }
+.abx-cta--dark .abx-cta__text { color:#fff; }
+.abx-cta__btn { flex-shrink:0; }
+.abx-cta--dark .abx-cta__btn { background: var(--gold-deep); border-color: var(--gold-deep); color:#fff !important; }
+.abx-cta--dark .abx-cta__btn:hover { background: var(--gold); border-color: var(--gold); }
+@media(max-width:680px){ .abx-cta__inner{flex-direction:column; align-items:flex-start;} .abx-cta__btn{width:100%; text-align:center;} }

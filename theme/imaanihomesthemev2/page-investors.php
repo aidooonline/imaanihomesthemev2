@@ -106,6 +106,18 @@ if (!$inv_img) {
     </div>
   </section>
 
+
+  <!-- INLINE CTA -->
+  <section class="abx-cta">
+    <div class="container abx-cta__inner">
+      <div class="abx-cta__copy">
+        <span class="abx-eyebrow">The Market Is Moving</span>
+        <p class="abx-cta__text">The fundamentals are rare and they are compounding now. Speak to an advisor while off-plan pricing is still open.</p>
+      </div>
+      <a class="btn btn--primary btn--lg abx-cta__btn" href="/contact/">Speak to an Advisor</a>
+    </div>
+  </section>
+
   <!-- YIELDS STATEMENT -->
   <section class="abx-why">
     <div class="container abx-why__inner">
@@ -139,6 +151,18 @@ if (!$inv_img) {
           </div>
         <?php endforeach; ?>
       </div>
+    </div>
+  </section>
+
+
+  <!-- INLINE CTA -->
+  <section class="abx-cta abx-cta--dark">
+    <div class="container abx-cta__inner">
+      <div class="abx-cta__copy">
+        <span class="abx-eyebrow">Match a Strategy to a Unit</span>
+        <p class="abx-cta__text">Not sure which model fits your goals? We will map the right approach to the right unit in minutes.</p>
+      </div>
+      <a class="btn btn--primary btn--lg abx-cta__btn" href="/contact/">Request a Strategy Call</a>
     </div>
   </section>
 
@@ -196,6 +220,18 @@ if (!$inv_img) {
     </div>
   </section>
 
+
+  <!-- INLINE CTA -->
+  <section class="abx-cta">
+    <div class="container abx-cta__inner">
+      <div class="abx-cta__copy">
+        <span class="abx-eyebrow">Reserve Your Position</span>
+        <p class="abx-cta__text">A $5,000 deposit secures off-plan pricing at Regalia, fully offset against your purchase.</p>
+      </div>
+      <a class="btn btn--primary btn--lg abx-cta__btn" href="/contact/">Start Your Reservation</a>
+    </div>
+  </section>
+
   <!-- ROI TABLES -->
   <section class="abx-sec abx-sec--stone">
     <div class="container">
@@ -235,6 +271,18 @@ if (!$inv_img) {
         </table>
       </div>
       <p class="abx-table-note">Charges and management estimated at 25% for short-let. Figures indicative; your advisor will model the specific unit and development.</p>
+    </div>
+  </section>
+
+
+  <!-- INLINE CTA -->
+  <section class="abx-cta abx-cta--dark">
+    <div class="container abx-cta__inner">
+      <div class="abx-cta__copy">
+        <span class="abx-eyebrow">See Your Numbers</span>
+        <p class="abx-cta__text">Get a projection built around the exact unit and development you are considering.</p>
+      </div>
+      <a class="btn btn--primary btn--lg abx-cta__btn" href="/contact/">Get My Projection</a>
     </div>
   </section>
 
