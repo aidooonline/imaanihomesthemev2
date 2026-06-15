@@ -34,9 +34,9 @@ $abx_pic_url = function (string $slug, string $size = 'full'): string {
 $inv_img = has_post_thumbnail() ? get_the_post_thumbnail(null, 'imaani-hero', ['loading' => 'eager', 'class' => 'abx-hero__img']) : '';
 if (!$inv_img) {
     // Generic Accra / Airport Residential cityscape (not a specific project)
-    $hero_ids = get_posts(['post_type' => 'attachment', 'name' => 'regalia-by-imaani-homes-luxury-apartments-in-airport-residential-area-accra-priced-from-82000-one-of-the-flagship-developments-in-ghanas-real-estate-market-2026', 'post_status' => 'inherit', 'posts_per_page' => 1, 'fields' => 'ids']);
+    $hero_ids = get_posts(['post_type' => 'attachment', 'name' => 'regalia-residence-aerial', 'post_status' => 'inherit', 'posts_per_page' => 1, 'fields' => 'ids']);
     if ($hero_ids) {
-        $inv_img = wp_get_attachment_image((int) $hero_ids[0], 'imaani-hero', false, ['loading' => 'eager', 'class' => 'abx-hero__img', 'alt' => 'Regalia Residence, a luxury Imaani Homes development in Airport Residential Area, Accra']);
+        $inv_img = wp_get_attachment_image((int) $hero_ids[0], 'full', false, ['loading' => 'eager', 'class' => 'abx-hero__img', 'alt' => 'Regalia Residence, a luxury Imaani Homes development in Airport Residential Area, Accra']);
     }
     // Fallback to first project image only if the cityscape is unavailable
     if (!$inv_img) {
