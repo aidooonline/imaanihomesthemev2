@@ -33,9 +33,17 @@ $abx_pic_url = function (string $slug, string $size = 'full'): string {
 
 $inv_img = has_post_thumbnail() ? get_the_post_thumbnail(null, 'imaani-hero', ['loading' => 'eager', 'class' => 'abx-hero__img']) : '';
 if (!$inv_img) {
-    foreach (imaani_projects() as $k => $proj) {
-        $inv_img = imaani_project_image($k, $proj, 'imaani-hero');
-        if ($inv_img) { $inv_img = str_replace('class="', 'class="abx-hero__img ', $inv_img); break; }
+    // Generic Accra / Airport Residential cityscape (not a specific project)
+    $hero_ids = get_posts(['post_type' => 'attachment', 'name' => 'airport-residential-area-streetscape', 'post_status' => 'inherit', 'posts_per_page' => 1, 'fields' => 'ids']);
+    if ($hero_ids) {
+        $inv_img = wp_get_attachment_image((int) $hero_ids[0], 'imaani-hero', false, ['loading' => 'eager', 'class' => 'abx-hero__img', 'alt' => 'Airport Residential Area, Accra skyline and luxury property market']);
+    }
+    // Fallback to first project image only if the cityscape is unavailable
+    if (!$inv_img) {
+        foreach (imaani_projects() as $k => $proj) {
+            $inv_img = imaani_project_image($k, $proj, 'imaani-hero');
+            if ($inv_img) { $inv_img = str_replace('class="', 'class="abx-hero__img ', $inv_img); break; }
+        }
     }
 }
 ?>
