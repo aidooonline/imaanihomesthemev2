@@ -767,3 +767,9 @@ ul, ol { padding-left: 1.2em; }
   text-shadow:0 2px 24px rgba(0,0,0,.4);
 }
 @media(max-width:680px){ .abx-imgband{ min-height: 340px; } }
+
+/* ============ AI / Quick-answer block (Investors) ============ */
+.abx-answer { background: var(--brand-tint); border-bottom: 1px solid var(--abx-line); padding-block: clamp(2rem, 4vw, 3rem); }
+.abx-answer__inner { max-width: 900px; }
+.abx-answer__lead { font-size: var(--text-lg); line-height: 1.7; color: var(--ink); margin: 0; font-weight: 300; }
+.abx-answer__lead strong { font-family: var(--font-display); font-weight: 400; color: var(--brand); display:block; margin-bottom: var(--space-2); font-size: 1.1em; }

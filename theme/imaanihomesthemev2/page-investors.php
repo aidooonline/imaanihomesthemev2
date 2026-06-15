@@ -23,6 +23,40 @@ foreach ($inv_faqs as $qa) {
 }
 echo '<script type="application/ld+json">' . wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
 
+// Service schema: describes the investment offering for search + AI entities
+$service_schema = [
+    '@context' => 'https://schema.org',
+    '@type'    => 'Service',
+    'name'     => 'Real Estate Investment in Accra, Ghana',
+    'serviceType' => 'Luxury residential property investment',
+    'provider' => [
+        '@type' => 'RealEstateAgent',
+        'name'  => 'Imaani Homes',
+        'url'   => home_url('/'),
+        'areaServed' => ['@type' => 'City', 'name' => 'Accra', 'containedInPlace' => ['@type' => 'Country', 'name' => 'Ghana']],
+    ],
+    'areaServed' => 'Accra, Ghana',
+    'audience'   => ['@type' => 'Audience', 'audienceType' => 'Diaspora and foreign real estate investors'],
+    'description' => 'Investment-grade luxury apartments in prime Accra delivering 8 to 11% net USD rental yields and 8 to 10% annual capital appreciation, with remote purchase available to diaspora and foreign buyers.',
+    'offers' => [
+        '@type' => 'Offer',
+        'priceCurrency' => 'USD',
+        'description' => 'Off-plan and completed luxury units in Airport Residential Area and Tesano, Accra.',
+    ],
+];
+echo '<script type="application/ld+json">' . wp_json_encode($service_schema, JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+
+// Breadcrumb schema
+$crumbs = [
+    '@context' => 'https://schema.org',
+    '@type'    => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => home_url('/')],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Investors', 'item' => get_permalink()],
+    ],
+];
+echo '<script type="application/ld+json">' . wp_json_encode($crumbs, JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+
 // Resolve a library image by slug for inline visuals
 $abx_pic_url = function (string $slug, string $size = 'full'): string {
     $found = get_posts(['post_type' => 'attachment', 'name' => $slug, 'post_status' => 'inherit', 'posts_per_page' => 1, 'fields' => 'ids']);
@@ -56,8 +90,8 @@ if (!$inv_img) {
     <div class="abx-hero__scrim" aria-hidden="true"></div>
     <div class="container abx-hero__inner">
       <span class="abx-eyebrow"><?php echo esc_html(imaani_field('imaani_inv_eyebrow', 'Investment Opportunity · Accra, Ghana')); ?></span>
-      <h1 class="abx-hero__title"><?php echo esc_html(imaani_field('imaani_inv_title', 'Your gateway to premium real estate returns in Accra.')); ?></h1>
-      <p class="abx-hero__lead"><?php echo esc_html(imaani_field('imaani_inv_lead', 'Luxury homes in Accra\'s best addresses, built to attract premium tenants and appreciate. Two sold out. Two active. Zero late deliveries.')); ?></p>
+      <h1 class="abx-hero__title"><?php echo esc_html(imaani_field('imaani_inv_title', 'Real Estate Investment in Accra, Ghana')); ?><em>8 to 11% USD yields, capital growth, and a developer who delivers on time.</em></h1>
+      <p class="abx-hero__lead"><?php echo esc_html(imaani_field('imaani_inv_lead', 'A complete guide to investing in Accra property: rental yields, capital appreciation, payment plans, and how diaspora and foreign buyers purchase remotely. Two developments sold out, two active, zero late deliveries.')); ?></p>
       <div class="abx-hero__btns">
         <a class="btn btn--primary btn--lg" href="<?php echo esc_url(home_url('/contact/')); ?>">Speak to an Advisor</a>
         <a class="btn btn--inverse" href="<?php echo esc_url(home_url('/projects/')); ?>">View Developments</a>
@@ -72,6 +106,14 @@ if (!$inv_img) {
       <div class="abx-stat"><span class="abx-stat__n">8<sup>&ndash;</sup>10<sup>%</sup></span><span class="abx-stat__l">Annual Capital Appreciation</span></div>
       <div class="abx-stat"><span class="abx-stat__n">100<sup>%</sup></span><span class="abx-stat__l">On-Time Delivery Record</span></div>
       <div class="abx-stat"><span class="abx-stat__n">USD</span><span class="abx-stat__l">Denominated Returns</span></div>
+    </div>
+  </section>
+
+
+  <!-- AI / QUICK ANSWER -->
+  <section class="abx-answer">
+    <div class="container abx-answer__inner">
+      <p class="abx-answer__lead"><strong>Is Accra a good place to invest in real estate?</strong> Yes. Prime Accra delivers 8 to 11% net rental yields and 8 to 10% annual capital appreciation, two to three times the returns of London or Nairobi, with income denominated in US dollars. Foreign nationals can legally own property on 50-year renewable leaseholds, and the entire purchase, from reservation to handover, can be completed remotely. Imaani Homes has delivered every development on time, with two fully sold out.</p>
     </div>
   </section>
 
@@ -99,7 +141,7 @@ if (!$inv_img) {
   <section class="abx-sec abx-sec--stone">
     <div class="container">
       <span class="abx-eyebrow">Demand That Doesn't Stop</span>
-      <h2 class="abx-display abx-display--left">Why Accra's rental market<em>keeps performing.</em></h2>
+      <h2 class="abx-display abx-display--left">Why invest in Accra property<em>the rental market keeps performing.</em></h2>
       <p class="abx-lead">Accra's prime residential market is underpinned by structural demand drivers that are not seasonal, not cyclical, and not dependent on any single industry. They compound, and they are growing.</p>
       <div class="abx-drivers">
         <?php
@@ -288,7 +330,7 @@ if (!$inv_img) {
   <section class="abx-sec abx-sec--stone">
     <div class="container">
       <span class="abx-eyebrow">Return on Investment</span>
-      <h2 class="abx-display abx-display--left">Rental income<em>projections.</em></h2>
+      <h2 class="abx-display abx-display--left">Accra rental yields<em>and income projections.</em></h2>
       <p class="abx-lead">Indicative figures for furnished, professionally managed units at current prime Accra rates. Your advisor will model the exact unit you are considering.</p>
 
       <h3 class="abx-table-title">Long Let, Furnished</h3>
