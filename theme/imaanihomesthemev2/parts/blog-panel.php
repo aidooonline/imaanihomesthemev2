@@ -14,7 +14,7 @@ $alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-
     <div class="ad-card__body">
       <span class="ad-card__eyebrow">Now Selling</span>
       <span class="ad-card__title">Regalia</span>
-      <span class="ad-card__text">Airport Residential's new standard — studios to penthouses, crowned by a rooftop infinity pool.</span>
+      <span class="ad-card__text">Airport Residential's new standard. Studios to penthouses, crowned by a rooftop infinity pool.</span>
       <span class="ad-card__cta">Explore Regalia <span aria-hidden="true">→</span></span>
     </div>
   </a>
@@ -25,7 +25,7 @@ $alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-
     <div class="ad-card__body">
       <span class="ad-card__eyebrow">Over 90% Sold</span>
       <span class="ad-card__title">Alexis Residence</span>
-      <span class="ad-card__text">Boutique apartments in Tesano — only three two-bedroom residences remaining.</span>
+      <span class="ad-card__text">Boutique apartments in Tesano. Only three two-bedroom residences remaining.</span>
       <span class="ad-card__cta">View Alexis <span aria-hidden="true">→</span></span>
     </div>
   </a>
@@ -34,7 +34,7 @@ $alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-
     <div class="ad-card__body">
       <span class="ad-card__eyebrow">Private Consultation</span>
       <span class="ad-card__title">Talk to our team</span>
-      <span class="ad-card__text">Tell us what you're looking for — we respond within 24 hours.</span>
+      <span class="ad-card__text">Tell us what you're looking for. We respond within 24 hours.</span>
       <span class="ad-card__cta">Book a Consultation <span aria-hidden="true">→</span></span>
     </div>
   </a>

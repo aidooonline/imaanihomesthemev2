@@ -6,7 +6,7 @@ get_header();
   <div class="container">
     <p class="eyebrow"><?php echo esc_html(imaani_field('imaani_inv_eyebrow', 'For Investors')); ?></p>
     <h1 class="page-head__title"><?php echo esc_html(imaani_field('imaani_inv_title', 'Invest where Accra already lives well')); ?></h1>
-    <p class="page-head__lead"><?php echo esc_html(imaani_field('imaani_inv_lead', 'Imaani Homes builds in established neighbourhoods with a delivery record to match — two developments sold out and handed over on time.')); ?></p>
+    <p class="page-head__lead"><?php echo esc_html(imaani_field('imaani_inv_lead', 'Imaani Homes builds in established neighbourhoods with a delivery record to match, two developments sold out and handed over on time.')); ?></p>
   </div>
 </section>
 <section class="section">
@@ -14,15 +14,15 @@ get_header();
     <div class="pillars">
       <div class="pillar">
         <h2 class="pillar__title">Rental Yields</h2>
-        <p>Studios and one-bedroom apartments at Regalia are sized and specified for the short-let and corporate-tenant market — premium product, premium location, accessible entry point. Executives on rotation from multinationals and international organisations based in Accra sustain year-round demand for one-bedroom units.</p>
+        <p>Studios and one-bedroom apartments at Regalia are sized and specified for the short-let and corporate-tenant market: premium product, premium location, accessible entry point. Executives on rotation from multinationals and international organisations based in Accra sustain year-round demand for one-bedroom units.</p>
       </div>
       <div class="pillar">
         <h2 class="pillar__title">Capital Appreciation</h2>
-        <p>Airport Residential Area and Tesano are among Accra's most established and secure neighbourhoods. Two-bedroom apartments in these areas are consistently favoured by diaspora returnees and small families — depth of demand that protects value.</p>
+        <p>Airport Residential Area and Tesano are among Accra's most established and secure neighbourhoods. Two-bedroom apartments in these areas are consistently favoured by diaspora returnees and small families, a depth of demand that protects value.</p>
       </div>
       <div class="pillar">
         <h2 class="pillar__title">Diaspora-Ready</h2>
-        <p>Foreign direct investment in Ghanaian real estate has been rising, and diaspora interest in Accra property is growing visibly. Imaani's sales team handles the full journey remotely — reservation, documentation, progress updates, handover.</p>
+        <p>Foreign direct investment in Ghanaian real estate has been rising, and diaspora interest in Accra property is growing visibly. Imaani's sales team handles the full journey remotely: reservation, documentation, progress updates, handover.</p>
       </div>
     </div>
 

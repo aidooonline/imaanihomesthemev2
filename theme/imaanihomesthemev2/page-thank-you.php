@@ -7,7 +7,7 @@ get_header();
     <p class="eyebrow">Message received</p>
     <h1 class="page-head__title">Thank you</h1>
     <?php if ('fail' === sanitize_text_field(wp_unslash($_GET['mail'] ?? ''))) : ?>
-      <p class="form-error">Your message couldn't be delivered automatically — please email <a href="mailto:<?php echo esc_attr(get_theme_mod('imaani_email', 'info@imaanihomes.com')); ?>"><?php echo esc_html(get_theme_mod('imaani_email', 'info@imaanihomes.com')); ?></a> directly.</p>
+      <p class="form-error">Your message couldn't be delivered automatically. Please email <a href="mailto:<?php echo esc_attr(get_theme_mod('imaani_email', 'info@imaanihomes.com')); ?>"><?php echo esc_html(get_theme_mod('imaani_email', 'info@imaanihomes.com')); ?></a> directly.</p>
     <?php else : ?>
       <p class="page-head__lead">Our team responds within 24 hours. In the meantime, explore what's selling now.</p>
     <?php endif; ?>

@@ -6,7 +6,7 @@ get_header();
   <div class="container">
     <p class="eyebrow">The Imaani Journal</p>
     <h1 class="page-head__title">Insight on Accra real estate</h1>
-    <p class="page-head__lead">Neighbourhood guides, market analysis, and investment thinking — from the team building Accra's most coveted addresses.</p>
+    <p class="page-head__lead">Neighbourhood guides, market analysis, and investment thinking from the team building Accra's most coveted addresses.</p>
   </div>
 </section>
 <section class="section">
@@ -27,7 +27,7 @@ get_header();
       <?php endwhile; ?>
       <nav class="pagination"><?php the_posts_pagination(['mid_size' => 1]); ?></nav>
       <?php else : ?>
-        <p>No articles yet — check back soon.</p>
+        <p>No articles yet. Check back soon.</p>
       <?php endif; ?>
     </div>
     <?php imaani_blog_panel(); ?>

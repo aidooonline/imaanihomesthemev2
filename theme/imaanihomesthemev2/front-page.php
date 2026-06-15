@@ -12,7 +12,7 @@ foreach ($projects as $slug => $p) {
 usort($slides, fn($a, $b) => ($b['img'] ? 1 : 0) <=> ($a['img'] ? 1 : 0));
 ?>
 
-<section class="hero" aria-label="Imaani Homes — featured developments">
+<section class="hero" aria-label="Imaani Homes featured developments">
   <div class="hero__slides" data-rotator>
     <?php foreach ($slides as $i => $s) : $p = $s['p']; ?>
       <div class="hero-slide<?php echo 0 === $i ? ' is-active' : ''; ?>" data-rotator-item>
@@ -60,11 +60,11 @@ usort($slides, fn($a, $b) => ($b['img'] ? 1 : 0) <=> ($a['img'] ? 1 : 0));
     <div class="pillars">
       <div class="pillar">
         <h3 class="pillar__title">We Deliver</h3>
-        <p>JAK Royale and The Ivy Townhomes — both sold out, both delivered on time and to the standard buyers were promised. The record is the reason buyers reserve off-plan with confidence.</p>
+        <p>JAK Royale and The Ivy Townhomes are both sold out, both delivered on time and to the standard buyers were promised. The record is the reason buyers reserve off-plan with confidence.</p>
       </div>
       <div class="pillar">
         <h3 class="pillar__title">Locations That Appreciate</h3>
-        <p>Airport Residential Area and Tesano — established, secure, well-connected neighbourhoods where addresses hold their value and demand stays deep.</p>
+        <p>Airport Residential Area and Tesano are established, secure, well-connected neighbourhoods where addresses hold their value and demand stays deep.</p>
       </div>
       <div class="pillar">
         <h3 class="pillar__title">Finishes That Speak</h3>
@@ -98,7 +98,7 @@ usort($slides, fn($a, $b) => ($b['img'] ? 1 : 0) <=> ($a['img'] ? 1 : 0));
         </div>
         <div class="investor-col">
           <h3>Capital Appreciation</h3>
-          <p>Airport Residential Area and Tesano are among Accra's most established addresses — locations with a history of holding and growing value.</p>
+          <p>Airport Residential Area and Tesano are among Accra's most established addresses, locations with a history of holding and growing value.</p>
         </div>
         <div class="investor-col">
           <h3>Diaspora-Ready</h3>
@@ -135,7 +135,7 @@ usort($slides, fn($a, $b) => ($b['img'] ? 1 : 0) <=> ($a['img'] ? 1 : 0));
     <span class="founder__rule" aria-hidden="true"></span>
     <p class="founder__note">&ldquo;<?php echo esc_html(get_theme_mod('imaani_founder_note', 'Imaani Homes was founded on a simple promise: build addresses worth keeping, and deliver them on time. Two sold-out developments later, the promise stands.')); ?>&rdquo;</p>
     <?php $founder = get_theme_mod('imaani_founder_name', ''); ?>
-    <p class="founder__name">— <?php echo $founder ? esc_html($founder) . ', Founder' : 'The Founder, Imaani Homes'; ?></p>
+    <p class="founder__name"><?php echo $founder ? esc_html($founder) . ', Founder' : 'The Founder, Imaani Homes'; ?></p>
   </div>
 </section>
 

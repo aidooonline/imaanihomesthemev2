@@ -43,7 +43,7 @@ $f_body     = imaani_field('imaani_proj_body', '');
   <div class="container project-layout">
     <div class="project-main">
       <?php if (trim($f_subtitle)) : ?>
-        <h2 class="project-subtitle"><?php echo esc_html($p['name']); ?> — <?php echo esc_html($f_subtitle); ?></h2>
+        <h2 class="project-subtitle"><?php echo esc_html($p['name']); ?>: <?php echo esc_html($f_subtitle); ?></h2>
       <?php endif; ?>
 
       <p class="lead"><?php echo esc_html($f_blurb); ?></p>
@@ -104,7 +104,7 @@ $f_body     = imaani_field('imaani_proj_body', '');
 
       <?php if ($sold) : ?>
         <h2>The story</h2>
-        <p><?php echo esc_html($p['name']); ?> sold out. Every buyer received their keys on time, to the standard promised at reservation. It now stands as proof of how Imaani Homes builds — and why our current developments sell off-plan with confidence.</p>
+        <p><?php echo esc_html($p['name']); ?> sold out. Every buyer received their keys on time, to the standard promised at reservation. It now stands as proof of how Imaani Homes builds, and why our current developments sell off-plan with confidence.</p>
         <h2>Join the waitlist</h2>
         <p>Be first to hear when a resale becomes available, or when our next development opens for reservations.</p>
       <?php endif; ?>

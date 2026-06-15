@@ -2,7 +2,7 @@
 defined('ABSPATH') || exit;
 
 /**
- * Native enquiry/waitlist form handler — zero plugins.
+ * Native enquiry/waitlist form handler, zero plugins.
  * POSTs to admin-post.php?action=imaani_contact, mails the team,
  * redirects to /thank-you/. Honeypot + nonce for spam/CSRF.
  * A CF7 shortcode saved in `imaani_form_shortcode` page meta overrides
@@ -18,7 +18,7 @@ function imaani_handle_contact(): void {
     if (!isset($_POST['imaani_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['imaani_nonce'])), 'imaani_contact')) {
         $fail('expired');
     }
-    // Honeypot — bots fill it, humans never see it
+    // Honeypot, bots fill it, humans never see it
     if (!empty($_POST['company_website'])) {
         wp_safe_redirect(home_url('/thank-you/'));
         exit;
@@ -37,7 +37,7 @@ function imaani_handle_contact(): void {
     }
 
     $to      = get_theme_mod('imaani_email', 'info@imaanihomes.com');
-    $subject = sprintf('%s request — %s — %s %s', $context, $interest, $first, $last);
+    $subject = sprintf('%s request: %s, %s %s', $context, $interest, $first, $last);
     $body    = "From: {$first} {$last}\nEmail: {$email}\nPhone: {$phone}\nInterested in: {$interest}\nForm: {$context}\n\nMessage:\n{$message}\n\n--\nSent from " . home_url('/');
     $headers = ['Reply-To: ' . $email];
 
@@ -61,7 +61,7 @@ function imaani_native_form(array $args = []): void {
     $notice   = sanitize_text_field(wp_unslash($_GET['form'] ?? ''));
     ?>
     <?php if ('expired' === $notice) : ?>
-      <p class="form-error">That form session expired — please try again.</p>
+      <p class="form-error">That form session expired. Please try again.</p>
     <?php elseif ('invalid' === $notice) : ?>
       <p class="form-error">Please provide at least your first name and a valid email.</p>
     <?php endif; ?>

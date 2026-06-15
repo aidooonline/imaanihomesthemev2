@@ -2,7 +2,7 @@
 defined('ABSPATH') || exit;
 
 /**
- * Customizer — every "Stephen edits this later" value lives here.
+ * Customizer, every "Stephen edits this later" value lives here.
  * Appearance → Customize → Imaani Homes.
  */
 add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
@@ -14,7 +14,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     $stats = [
         'imaani_est_year'       => ['Established year', '2019'],
         'imaani_developments'   => ['Developments count', '4'],
-        'imaani_units_delivered'=> ['Units delivered (leave blank to hide — must be a verified number)', ''],
+        'imaani_units_delivered'=> ['Units delivered (leave blank to hide, must be a verified number)', ''],
         'imaani_sold_out_count' => ['Sold-out developments', '2'],
         'imaani_on_time'        => ['On-time delivery claim', '100% On-Time'],
     ];
@@ -71,20 +71,20 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         $id = 'imaani_img_' . str_replace('-', '_', $key);
         $wp_customize->add_setting($id, ['default' => 0, 'sanitize_callback' => 'absint']);
         $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, $id, [
-            'label' => $label . ' — card/hero image',
+            'label' => $label . ', card/hero image',
             'description' => 'Overrides (or supplies) the image shown on homepage hero cards and project cards.',
             'section' => 'imaani_images',
             'mime_type' => 'image',
         ]));
     }
 
-    // ---- Project pricing (shown only when set — verified numbers only) ----
+    // ---- Project pricing (shown only when set, verified numbers only) ----
     $wp_customize->add_section('imaani_pricing', ['title' => 'Project Pricing', 'panel' => 'imaani']);
     foreach (['regalia' => 'Regalia', 'alexis' => 'Alexis Residence'] as $key => $label) {
         $id = "imaani_price_{$key}";
         $wp_customize->add_setting($id, ['default' => '', 'sanitize_callback' => 'sanitize_text_field']);
         $wp_customize->add_control($id, [
-            'label' => "{$label} — Starting from (e.g. \$120,000). Blank hides the price line.",
+            'label' => "{$label}, Starting from (e.g. \$120,000). Blank hides the price line.",
             'section' => 'imaani_pricing', 'type' => 'text',
         ]);
     }

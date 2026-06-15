@@ -2,7 +2,7 @@
 defined('ABSPATH') || exit;
 
 /**
- * Page content fields — lets Stephen edit every page's structural copy from the
+ * Page content fields, lets Stephen edit every page's structural copy from the
  * normal WordPress page editor instead of touching code. Each field has a
  * sensible default (the original copy), so empty = fall back to default.
  *
@@ -21,19 +21,19 @@ function imaani_page_field_defs(): array {
         'about' => [
             'imaani_about_eyebrow'   => ['About Imaani Homes', 'text'],
             'imaani_about_title'     => ['Precision. Intention. Value.', 'text'],
-            'imaani_about_lead'      => ['Where Elegance Meets Exclusivity — four developments in Accra\'s most established neighbourhoods, two already sold out and delivered on time.', 'textarea'],
+            'imaani_about_lead'      => ['Where Elegance Meets Exclusivity, four developments in Accra\'s most established neighbourhoods, two already sold out and delivered on time.', 'textarea'],
             'imaani_about_body'      => ['', 'wysiwyg'], // blank → uses the default prose block
         ],
         'investors' => [
             'imaani_inv_eyebrow' => ['For Investors', 'text'],
             'imaani_inv_title'   => ['Invest where Accra already lives well', 'text'],
-            'imaani_inv_lead'    => ['Imaani Homes builds in established neighbourhoods with a delivery record to match — two developments sold out and handed over on time.', 'textarea'],
+            'imaani_inv_lead'    => ['Imaani Homes builds in established neighbourhoods with a delivery record to match, two developments sold out and handed over on time.', 'textarea'],
             'imaani_inv_body'    => ['', 'wysiwyg'],
         ],
         'contact' => [
             'imaani_contact_eyebrow' => ['Contact', 'text'],
             'imaani_contact_title'   => ['Reserve your private consultation', 'text'],
-            'imaani_contact_lead'    => ['Tell us what you\'re looking for — a home, an investment, or both. Our team responds within 24 hours.', 'textarea'],
+            'imaani_contact_lead'    => ['Tell us what you\'re looking for, a home, an investment, or both. Our team responds within 24 hours.', 'textarea'],
         ],
         'faq' => [
             'imaani_faq_eyebrow' => ['Questions', 'text'],
@@ -87,7 +87,7 @@ add_action('add_meta_boxes', function () {
     $has = isset($defs[$slug]) || imaani_is_project_slug($slug);
     if (!$has) return;
 
-    add_meta_box('imaani_page_fields', 'Imaani — Page Content', function ($post) use ($slug, $defs) {
+    add_meta_box('imaani_page_fields', 'Imaani Page Content', function ($post) use ($slug, $defs) {
         wp_nonce_field('imaani_page_fields', 'imaani_page_fields_nonce');
         $fields = imaani_is_project_slug($slug) ? imaani_project_field_defs() : $defs[$slug];
         echo '<style>.imaani-mb{display:grid;gap:16px}.imaani-mb label{display:block;font-weight:600;margin-bottom:4px}.imaani-mb input[type=text],.imaani-mb textarea{width:100%;padding:8px;border:1px solid #ddd;border-radius:4px}.imaani-mb .hint{color:#777;font-weight:400;font-size:12px;margin:2px 0 6px}</style>';

@@ -1,5 +1,5 @@
 <?php
-/** Imaani Homes v2 — bootstrap */
+/** Imaani Homes v2, bootstrap */
 defined('ABSPATH') || exit;
 
 define('IMAANI_VERSION', '1.0.0');

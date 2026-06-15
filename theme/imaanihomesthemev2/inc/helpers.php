@@ -6,7 +6,7 @@ function imaani_badge(string $status, string $label): string {
     return '<span class="badge badge--' . esc_attr($status) . '">' . esc_html($label) . '</span>';
 }
 
-/** Trust strip items — verified/spec-locked values only. */
+/** Trust strip items, verified/spec-locked values only. */
 function imaani_trust_items(): array {
     $items = [
         'Est. ' . get_theme_mod('imaani_est_year', '2019'),
@@ -24,7 +24,7 @@ function imaani_trust_items(): array {
 
 /**
  * FAQ content. Factual, sourced from published Imaani content and the locked
- * spec — no invented numbers. Extend freely; schema is generated from this.
+ * spec, no invented numbers. Extend freely; schema is generated from this.
  */
 function imaani_faq_items(): array {
     return [
@@ -39,7 +39,7 @@ function imaani_faq_items(): array {
         ['q' => 'Can I buy from abroad as a member of the diaspora?',
          'a' => 'Yes. Imaani Homes works with diaspora buyers regularly, and 2-bedroom apartments in established neighbourhoods such as Airport Residential Area and Tesano are a popular choice for diaspora returnees. Contact the sales team to arrange a consultation from wherever you are.'],
         ['q' => 'How do I reserve a unit or book a consultation?',
-         'a' => 'Use the contact page to reserve a private consultation — our team responds within 24 hours. You can also call ' . get_theme_mod('imaani_phone', '+233 595 959595') . ' or email ' . get_theme_mod('imaani_email', 'info@imaanihomes.com') . '.'],
+         'a' => 'Use the contact page to reserve a private consultation. Our team responds within 24 hours. You can also call ' . get_theme_mod('imaani_phone', '+233 595 959595') . ' or email ' . get_theme_mod('imaani_email', 'info@imaanihomes.com') . '.'],
         ['q' => 'Where is Imaani Homes located?',
          'a' => get_theme_mod('imaani_address', '1st Floor, Williams Heights, Kwabena Duffour Road, Airport Residential Area, Accra') . '.'],
     ];
@@ -83,7 +83,7 @@ function imaani_project_image(string $key, array $p, string $size = 'imaani-card
     return '';
 }
 
-/** Credibility marquee items — Customizer override, else verified facts. */
+/** Credibility marquee items, Customizer override, else verified facts. */
 function imaani_marquee_items(): array {
     $raw = trim((string) get_theme_mod('imaani_marquee_items', ''));
     if ('' !== $raw) {
@@ -91,10 +91,10 @@ function imaani_marquee_items(): array {
     }
     return [
         'Est. 2019 in Accra',
-        'JAK Royale — Sold Out',
-        'The Ivy Townhomes — Sold Out',
-        'Alexis Residence — Over 90% Sold',
-        'Regalia — Now Selling at Airport Residential',
+        'JAK Royale: Sold Out',
+        'The Ivy Townhomes: Sold Out',
+        'Alexis Residence: Over 90% Sold',
+        'Regalia: Now Selling at Airport Residential',
         '100% On-Time Delivery',
         'Trusted by Diaspora Buyers Worldwide',
     ];

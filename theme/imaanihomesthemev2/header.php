@@ -36,7 +36,7 @@
       } else {
           $logo = imaani_logo_by_slug('imaanilogomain', 'site-brand__logo');
           if ($logo) {
-              printf('<a class="site-brand__link" href="%s" aria-label="Imaani Homes — home">%s</a>', esc_url(home_url('/')), $logo);
+              printf('<a class="site-brand__link" href="%s" aria-label="Imaani Homes home">%s</a>', esc_url(home_url('/')), $logo);
           } else { ?>
             <a class="site-brand__text" href="<?php echo esc_url(home_url('/')); ?>">
               <span class="site-brand__name">Imaani Homes</span>
