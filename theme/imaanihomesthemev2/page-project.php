@@ -11,6 +11,11 @@ $sold = ($p['status'] === 'sold-out');
 $price = !empty($p['price_key']) ? trim((string) get_theme_mod($p['price_key'], '')) : '';
 $units = get_post_meta(get_the_ID(), 'imaani_units_json', true);
 $units = $units ? json_decode($units, true) : ($p['units'] ?? []);
+
+// Editor overrides for copy (fall back to verified registry content)
+$f_subtitle = imaani_field('imaani_proj_subtitle', $p['subtitle'] ?? '');
+$f_blurb    = imaani_field('imaani_proj_blurb', $p['blurb'] ?? '');
+$f_body     = imaani_field('imaani_proj_body', '');
 ?>
 <?php if (has_post_thumbnail()) : ?>
 <section class="project-banner">
@@ -37,13 +42,15 @@ $units = $units ? json_decode($units, true) : ($p['units'] ?? []);
 <section class="section">
   <div class="container project-layout">
     <div class="project-main">
-      <?php if (!empty($p['subtitle'])) : ?>
-        <h2 class="project-subtitle"><?php echo esc_html($p['name']); ?> — <?php echo esc_html($p['subtitle']); ?></h2>
+      <?php if (trim($f_subtitle)) : ?>
+        <h2 class="project-subtitle"><?php echo esc_html($p['name']); ?> — <?php echo esc_html($f_subtitle); ?></h2>
       <?php endif; ?>
 
-      <p class="lead"><?php echo esc_html($p['blurb']); ?></p>
+      <p class="lead"><?php echo esc_html($f_blurb); ?></p>
 
-      <?php if (!empty($p['body']) && is_array($p['body'])) : ?>
+      <?php if (trim($f_body)) : ?>
+        <?php echo wp_kses_post(wpautop($f_body)); ?>
+      <?php elseif (!empty($p['body']) && is_array($p['body'])) : ?>
         <?php foreach ($p['body'] as $para) : ?>
           <p><?php echo esc_html($para); ?></p>
         <?php endforeach; ?>

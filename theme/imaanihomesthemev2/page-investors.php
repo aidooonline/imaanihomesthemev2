@@ -4,9 +4,9 @@ get_header();
 ?>
 <section class="page-head">
   <div class="container">
-    <p class="eyebrow">For Investors</p>
-    <h1 class="page-head__title">Invest where Accra already lives well</h1>
-    <p class="page-head__lead">Imaani Homes builds in established neighbourhoods with a delivery record to match — two developments sold out and handed over on time.</p>
+    <p class="eyebrow"><?php echo esc_html(imaani_field('imaani_inv_eyebrow', 'For Investors')); ?></p>
+    <h1 class="page-head__title"><?php echo esc_html(imaani_field('imaani_inv_title', 'Invest where Accra already lives well')); ?></h1>
+    <p class="page-head__lead"><?php echo esc_html(imaani_field('imaani_inv_lead', 'Imaani Homes builds in established neighbourhoods with a delivery record to match — two developments sold out and handed over on time.')); ?></p>
   </div>
 </section>
 <section class="section">
@@ -25,6 +25,10 @@ get_header();
         <p>Foreign direct investment in Ghanaian real estate has been rising, and diaspora interest in Accra property is growing visibly. Imaani's sales team handles the full journey remotely — reservation, documentation, progress updates, handover.</p>
       </div>
     </div>
+
+    <?php $inv_body = imaani_field('imaani_inv_body', ''); if (trim($inv_body)) : ?>
+      <div class="container--narrow entry-content flow" style="margin-top:var(--space-10)"><?php echo wp_kses_post(wpautop($inv_body)); ?></div>
+    <?php endif; ?>
 
     <div class="investor-reading">
       <p class="eyebrow">From our research desk</p>

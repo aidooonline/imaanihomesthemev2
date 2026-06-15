@@ -1,5 +1,9 @@
 # CONTENT-EDITING — where to change what
 
+> **All page copy is now editable from the page editor.** Open any page in wp-admin → scroll to the **"Imaani — Page Content"** panel below the editor. Each field shows its default; leave blank to use it. The About, Investors, and project pages also have a full visual (WYSIWYG) body editor for free-form content with images.
+
+# CONTENT-EDITING — where to change what
+
 Everything an admin edits lives in **Appearance → Customize → Imaani Homes** unless noted.
 
 | What | Where | Notes |

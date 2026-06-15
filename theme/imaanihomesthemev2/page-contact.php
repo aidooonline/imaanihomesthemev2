@@ -6,9 +6,9 @@ $phone = get_theme_mod('imaani_phone', '+233 595 959595');
 ?>
 <section class="page-head">
   <div class="container">
-    <p class="eyebrow">Contact</p>
-    <h1 class="page-head__title">Reserve your private consultation</h1>
-    <p class="page-head__lead">Tell us what you're looking for — a home, an investment, or both. Our team responds within 24 hours.</p>
+    <p class="eyebrow"><?php echo esc_html(imaani_field('imaani_contact_eyebrow', 'Contact')); ?></p>
+    <h1 class="page-head__title"><?php echo esc_html(imaani_field('imaani_contact_title', 'Reserve your private consultation')); ?></h1>
+    <p class="page-head__lead"><?php echo esc_html(imaani_field('imaani_contact_lead', 'Tell us what you\'re looking for — a home, an investment, or both. Our team responds within 24 hours.')); ?></p>
   </div>
 </section>
 <section class="section section--tint">

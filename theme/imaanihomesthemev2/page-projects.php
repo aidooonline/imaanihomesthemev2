@@ -4,9 +4,9 @@ get_header();
 ?>
 <section class="page-head">
   <div class="container">
-    <p class="eyebrow">Our Developments</p>
-    <h1 class="page-head__title">Four Addresses, One Standard</h1>
-    <p class="page-head__lead">Two sold out and delivered on time. Two now selling. Every address built to the same finish specification, in neighbourhoods that hold their value.</p>
+    <p class="eyebrow"><?php echo esc_html(imaani_field('imaani_projects_eyebrow', 'Our Developments')); ?></p>
+    <h1 class="page-head__title"><?php echo esc_html(imaani_field('imaani_projects_title', 'Four Addresses, One Standard')); ?></h1>
+    <p class="page-head__lead"><?php echo esc_html(imaani_field('imaani_projects_lead', 'Two sold out and delivered on time. Two now selling. Every address built to the same finish specification, in neighbourhoods that hold their value.')); ?></p>
   </div>
 </section>
 <section class="section">

@@ -4,8 +4,8 @@ get_header();
 ?>
 <section class="page-head">
   <div class="container">
-    <p class="eyebrow">Questions</p>
-    <h1 class="page-head__title">Frequently asked questions</h1>
+    <p class="eyebrow"><?php echo esc_html(imaani_field('imaani_faq_eyebrow', 'Questions')); ?></p>
+    <h1 class="page-head__title"><?php echo esc_html(imaani_field('imaani_faq_title', 'Frequently asked questions')); ?></h1>
   </div>
 </section>
 <section class="section">

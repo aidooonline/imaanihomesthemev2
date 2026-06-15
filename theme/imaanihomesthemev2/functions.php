@@ -12,5 +12,6 @@ require IMAANI_DIR . '/inc/customizer.php';
 require IMAANI_DIR . '/inc/projects.php';
 require IMAANI_DIR . '/inc/cpt-portfolio.php';
 require IMAANI_DIR . '/inc/schema.php';
+require IMAANI_DIR . '/inc/page-fields.php';
 require IMAANI_DIR . '/inc/forms.php';
 require IMAANI_DIR . '/inc/helpers.php';

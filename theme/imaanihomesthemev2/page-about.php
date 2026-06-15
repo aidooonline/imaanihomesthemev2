@@ -2,15 +2,16 @@
 defined('ABSPATH') || exit;
 get_header();
 the_post();
+$about_field   = imaani_field('imaani_about_body', '');
 $about_content = get_the_content();
 $about_legacy  = 'builder' === get_post_meta(get_the_ID(), '_elementor_edit_mode', true)
     || str_contains($about_content, 'elementor-');
 ?>
 <section class="page-head">
   <div class="container">
-    <p class="eyebrow">About Imaani Homes</p>
-    <h1 class="page-head__title">Precision. Intention. Value.</h1>
-    <p class="page-head__lead"><?php echo esc_html(get_theme_mod('imaani_tagline', 'Where Elegance Meets Exclusivity')); ?> — four developments in Accra's most established neighbourhoods, two already sold out and delivered on time.</p>
+    <p class="eyebrow"><?php echo esc_html(imaani_field('imaani_about_eyebrow', 'About Imaani Homes')); ?></p>
+    <h1 class="page-head__title"><?php echo esc_html(imaani_field('imaani_about_title', 'Precision. Intention. Value.')); ?></h1>
+    <p class="page-head__lead"><?php echo esc_html(imaani_field('imaani_about_lead', get_theme_mod('imaani_tagline', 'Where Elegance Meets Exclusivity') . ' — four developments in Accra\'s most established neighbourhoods, two already sold out and delivered on time.')); ?></p>
   </div>
 </section>
 
@@ -30,7 +31,11 @@ if ($about_img) : ?>
   </div>
 </section>
 <?php endif; ?>
-<?php if (trim($about_content) && !$about_legacy) : ?>
+<?php if (trim($about_field)) : ?>
+<section class="section">
+  <div class="container container--narrow entry-content flow"><?php echo wp_kses_post(wpautop($about_field)); ?></div>
+</section>
+<?php elseif (trim($about_content) && !$about_legacy) : ?>
 <section class="section">
   <div class="container container--narrow entry-content flow"><?php the_content(); ?></div>
 </section>
