@@ -757,10 +757,9 @@ ul, ol { padding-left: 1.2em; }
   position: relative;
   min-height: clamp(360px, 52vh, 560px);
   background-size: cover; background-position: center; background-repeat: no-repeat;
-  display: flex; align-items: flex-end;
 }
 .abx-imgband__scrim { position:absolute; inset:0; background: linear-gradient(180deg, rgba(20,8,11,.15) 0%, rgba(20,8,11,0) 45%, rgba(20,8,11,.70) 100%); }
-.abx-imgband__inner { position:relative; z-index:1; width:100%; padding-block: clamp(2.25rem, 4vw, 3.5rem); }
+.abx-imgband__inner { position:absolute; left:0; right:0; bottom:0; z-index:1; padding-block: clamp(2.25rem, 4vw, 3.5rem); }
 .abx-imgband__cap {
   font-family: var(--font-display); font-weight:400; text-align:left;
   font-size: clamp(1.333rem, 1.6vw + .9rem, 2rem); line-height:1.32;
