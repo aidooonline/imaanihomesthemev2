@@ -750,3 +750,19 @@ ul, ol { padding-left: 1.2em; }
 .abx-cta--dark .abx-cta__btn { background: var(--gold-deep); border-color: var(--gold-deep); color:#fff !important; }
 .abx-cta--dark .abx-cta__btn:hover { background: var(--gold); border-color: var(--gold); }
 @media(max-width:680px){ .abx-cta__inner{flex-direction:column; align-items:flex-start;} .abx-cta__btn{width:100%; text-align:center;} }
+
+/* ============ Inline image bands (Investors) ============ */
+.abx-figband { background: var(--white); padding-block: clamp(2rem, 4vw, 3.5rem); }
+.abx-figband--full { padding-block: 0; background: transparent; }
+.abx-figband__frame { margin:0; position:relative; overflow:hidden; }
+.abx-figband:not(.abx-figband--full) .abx-figband__frame { aspect-ratio: 21/9; border:1px solid var(--abx-line); }
+.abx-figband--full .abx-figband__frame { aspect-ratio: 21/8; }
+.abx-figband__frame img { width:100%; height:100%; object-fit:cover; display:block; }
+.abx-figband__cap {
+  position:absolute; left:0; right:0; bottom:0;
+  padding: clamp(1.5rem,3vw,2.5rem) clamp(1.25rem,3vw,2.5rem) clamp(1rem,2vw,1.5rem);
+  font-family: var(--font-display); font-weight:400; font-size: clamp(1.056rem,1vw+.8rem,1.333rem);
+  color:#fff; text-shadow:0 2px 16px rgba(0,0,0,.45);
+  background: linear-gradient(180deg, rgba(20,8,11,0) 0%, rgba(20,8,11,.72) 100%);
+}
+@media(max-width:680px){ .abx-figband:not(.abx-figband--full) .abx-figband__frame, .abx-figband--full .abx-figband__frame{ aspect-ratio:4/3; } }
