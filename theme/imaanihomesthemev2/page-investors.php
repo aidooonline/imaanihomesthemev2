@@ -5,15 +5,15 @@ the_post();
 
 // Investor FAQ data (verified from supplied content; em-dash free)
 $inv_faqs = [
-    ['Can foreigners legally own property in Ghana?', 'Yes. Ghana allows foreign nationals to legally purchase and own real estate through leasehold structures. Ghanaian citizens hold leaseholds of up to 99 years; foreign nationals hold 50-year leaseholds, renewable and fully transferable.'],
-    ['What currency are prices and rental income denominated in?', 'All Imaani Homes unit prices are denominated in USD. Rental income from corporate tenants, expatriates, and most diaspora buyers is collected in USD, so your returns are benchmarked against the world\'s reserve currency, not subject to local inflation or cedi volatility.'],
-    ['Do I need to be in Ghana to purchase a property?', 'No. The entire purchase process, from reservation and legal review to Sales Agreement signing, stage payments, and pre-handover inspection, can be completed remotely. Many Imaani buyers have collected their keys without having visited the property beforehand.'],
-    ['What taxes apply to property investment in Ghana?', 'Rental income tax is 8% for resident landlords and 15% for non-residents. Our team can walk you through the full picture for your situation before you commit.'],
-    ['What is Imaani Homes\' delivery track record?', 'Every Imaani development to date has been completed on or before the scheduled handover date. JAK Royale and The Ivy Townhomes, both fully sold out, were delivered on time, to specification, with zero amendments to what was committed at reservation.'],
-    ['Can I get financing or a mortgage for a Ghana property?', 'GHS-denominated mortgages carry rates of 22 to 30% annually, generally not viable for investment purposes. USD-denominated loans from select banks run at 10 to 12% annually. Most investors purchase in cash via our milestone-linked payment structure.'],
-    ['Who manages the property after handover?', 'Imaani Homes connects buyers at handover with vetted property management partners who handle both short-let and long-let operations: tenant sourcing, rent collection, maintenance, utility management, housekeeping, and monthly owner reporting.'],
-    ['Can I repatriate my rental income and profits from Ghana?', 'Yes. Ghana has no restrictions on the repatriation of rental income or sale proceeds by foreign investors. Profits, dividends, and capital gains can be transferred abroad freely after applicable taxes.'],
-    ['What is the minimum investment entry point?', 'Studio apartments represent the lowest entry point and the highest yield percentage, the most capital-efficient investment per dollar deployed. Imaani builds across a range of prime Accra addresses, each with its own entry pricing.'],
+    ['Can foreigners legally own property in Ghana?', 'Yes, through leasehold. Citizens hold up to 99 years; foreign nationals hold 50-year leaseholds, renewable and fully transferable.'],
+    ['What currency are prices and rental income denominated in?', 'USD. Prices and most rental income are in dollars, so your returns are benchmarked against the reserve currency, not cedi volatility.'],
+    ['Do I need to be in Ghana to purchase a property?', 'No. The whole process, from reservation to signing, payments and inspection, can be done remotely. Many buyers collect keys having never visited.'],
+    ['What taxes apply to property investment in Ghana?', 'Rental income tax is 8% for residents, 15% for non-residents. Our team walks you through the full picture before you commit.'],
+    ['What is Imaani Homes\' delivery track record?', 'Every development delivered on or before its handover date. JAK Royale and The Ivy, both sold out, were delivered on time, to spec, with zero amendments.'],
+    ['Can I get financing or a mortgage for a Ghana property?', 'Cedi mortgages run 22 to 30%, rarely viable. USD loans from select banks run 10 to 12%. Most investors buy in cash via our milestone payment plan.'],
+    ['Who manages the property after handover?', 'At handover we connect you with vetted partners who handle everything: tenants, rent, maintenance, utilities, housekeeping and monthly reporting.'],
+    ['Can I repatriate my rental income and profits from Ghana?', 'Yes. Ghana places no restrictions on repatriating rental income or sale proceeds. Profits and gains transfer abroad freely after applicable taxes.'],
+    ['What is the minimum investment entry point?', 'Studios are the lowest entry and the highest yield, the most capital-efficient per dollar. Each prime address carries its own entry pricing.'],
 ];
 
 // FAQPage schema
@@ -41,7 +41,7 @@ if (!$inv_img) {
     <div class="container abx-hero__inner">
       <span class="abx-eyebrow"><?php echo esc_html(imaani_field('imaani_inv_eyebrow', 'Investment Opportunity · Accra, Ghana')); ?></span>
       <h1 class="abx-hero__title"><?php echo esc_html(imaani_field('imaani_inv_title', 'Your gateway to premium real estate returns in Accra.')); ?></h1>
-      <p class="abx-hero__lead"><?php echo esc_html(imaani_field('imaani_inv_lead', 'Imaani Homes develops luxury residential properties in Accra\'s most sought-after addresses, built to attract the right tenants, generate consistent yields, and appreciate over time. Two sold out. Two active. Zero late deliveries.')); ?></p>
+      <p class="abx-hero__lead"><?php echo esc_html(imaani_field('imaani_inv_lead', 'Luxury homes in Accra\'s best addresses, built to attract premium tenants and appreciate. Two sold out. Two active. Zero late deliveries.')); ?></p>
       <div class="abx-hero__btns">
         <a class="btn btn--primary btn--lg" href="<?php echo esc_url(home_url('/contact/')); ?>">Speak to an Advisor</a>
         <a class="btn btn--inverse" href="<?php echo esc_url(home_url('/projects/')); ?>">View Developments</a>
@@ -69,12 +69,10 @@ if (!$inv_img) {
       <?php else : ?>
       <div class="abx-story">
         <div class="abx-prose">
-          <p>Imaani Homes is an Accra-based luxury real estate developer with a singular focus: building the right property in the right address and delivering it exactly as promised. Since 2019 we have completed four developments across Accra's prime residential belt, two fully sold out, two actively selling, with a zero-late-delivery record across every project.</p>
-          <p>Ghana's stable democracy, surging foreign direct investment, AfCFTA headquarters presence, and chronic housing deficit of 1.8 million units create the conditions for one of Africa's most compelling real estate investment markets. <strong>Prime Accra delivers 8 to 11% net rental yields, two to three times what London or Nairobi offer,</strong> with USD-denominated returns that protect investors from local currency movement.</p>
+          <p>Since 2019 we have completed four developments across Accra's prime belt: two sold out, two selling, every one delivered on time. We build the right property in the right address and hand it over exactly as promised.</p>
         </div>
         <div class="abx-prose">
-          <p>With Imaani Homes, you are not just buying property. You are securing a tangible, income-generating asset in one of Africa's fastest-recovering economies, backed by a developer with a track record that speaks for itself.</p>
-          <p>This is the difference between buying into a promise and buying into a record. Two developments delivered and sold out. Two selling now. Every one handed over on the date committed at reservation.</p>
+          <p><strong>Prime Accra delivers 8 to 11% net rental yields, two to three times London or Nairobi,</strong> in USD. You are not buying a promise. You are buying a tangible, income-generating asset backed by a record that speaks for itself.</p>
         </div>
       </div>
       <?php endif; ?>
@@ -90,12 +88,12 @@ if (!$inv_img) {
       <div class="abx-drivers">
         <?php
         $drivers = [
-          ['1.8M', 'Unit Housing Deficit', 'Ghana\'s housing shortfall creates structural demand that will take decades to close. In prime Accra, land scarcity keeps quality supply permanently constrained, giving landlords consistent pricing power.'],
-          ['$2.6B', 'FDI Into Ghana in 2025', 'Foreign direct investment surged to $2.61 billion in 2025, more than four times the 2024 figure. Every executive deployed to Accra by a multinational needs a quality furnished home. That is your tenant.'],
-          ['AfCFTA', 'Africa\'s Trade Headquarters', 'Accra hosts the permanent secretariat of the African Continental Free Trade Area: 1.4 billion people, $3.4 trillion in GDP. The executives running continental operations live in the addresses Imaani builds in.'],
-          ['$3B', 'Annual Diaspora Remittances', 'Ghana receives approximately $3 billion in annual diaspora capital. A significant portion flows into prime real estate, creating a deep resale market and a liquid exit for investors when they are ready.'],
-          ['6.3%', 'GDP Growth, H1 2025', 'Ghana\'s fastest economic expansion since 2019. Fitch, Moody\'s, and S&P all upgraded Ghana\'s credit in 2025. Inflation fell to 3.2% by March 2026. The recovery is in the data, not a forecast.'],
-          ['6&ndash;10%', 'Vacancy Rate, Prime Accra', 'Quality buildings in Accra\'s prime belt run vacancy rates of just 6 to 10%. Corporate leases are regularly signed 1 to 3 years in advance, removing vacancy risk for well-managed units almost entirely.'],
+          ['1.8M', 'Unit Housing Deficit', 'A shortfall that will take decades to close. Land scarcity keeps prime supply constrained, giving landlords lasting pricing power.'],
+          ['$2.6B', 'FDI Into Ghana in 2025', 'FDI surged past $2.6 billion in 2025, four times 2024. Every executive a multinational sends to Accra needs a furnished home. That is your tenant.'],
+          ['AfCFTA', 'Africa\'s Trade Headquarters', 'Accra hosts the AfCFTA secretariat: 1.4 billion people, $3.4 trillion in GDP. The executives running it live in the addresses we build in.'],
+          ['$3B', 'Annual Diaspora Remittances', 'Around $3 billion flows home each year, much of it into prime property, creating a deep resale market and a liquid exit when you are ready.'],
+          ['6.3%', 'GDP Growth, H1 2025', 'The fastest expansion since 2019. Fitch, Moody\'s and S&P all upgraded Ghana in 2025; inflation fell to 3.2%. The recovery is in the data.'],
+          ['6&ndash;10%', 'Vacancy Rate, Prime Accra', 'Prime buildings run just 6 to 10% vacancy. Corporate leases are signed 1 to 3 years ahead, removing vacancy risk almost entirely.'],
         ];
         foreach ($drivers as $d) : ?>
           <div class="abx-driver">
@@ -113,8 +111,7 @@ if (!$inv_img) {
     <div class="container abx-why__inner">
       <span class="abx-eyebrow">The Investor's Opportunity</span>
       <h2 class="abx-display">Exceptional returns from a market<em>London investors never had access to.</em></h2>
-      <p>Imaani Homes properties generate <strong>8 to 11% net rental yields</strong> in the prime Accra market, among the strongest returns in Sub-Saharan Africa for quality residential assets. Combined with 8 to 10% annual capital appreciation, the total investment case is compelling by any global benchmark.</p>
-      <p>Our competitive rental yields, combined with professional property management and USD-denominated income, deliver consistent, hassle-free returns: the ideal balance of immediate rental income and long-term capital appreciation in one of Africa's most resilient prime property markets.</p>
+      <p><strong>8 to 11% net rental yields plus 8 to 10% annual appreciation,</strong> among the strongest returns in Sub-Saharan Africa. With professional management and USD income, you get immediate cash flow and long-term capital growth, hands-free.</p>
     </div>
   </section>
 
@@ -123,14 +120,14 @@ if (!$inv_img) {
     <div class="container">
       <span class="abx-eyebrow">Investment Models</span>
       <h2 class="abx-display abx-display--left">Four ways to invest<em>with Imaani Homes.</em></h2>
-      <p class="abx-lead">Your strategy determines which model is right for you. Our sales team will help you match the approach to the unit, the development, and your financial goals.</p>
+      <p class="abx-lead">Your goals decide the model. Our team matches the approach to the right unit and development.</p>
       <div class="abx-models">
         <?php
         $models = [
-          ['01', 'Short-Let & Corporate Rental', 'Furnish to a five-star standard. List on Airbnb, Booking.com, and corporate relocation platforms. Target business travellers, diaspora visitors, and expatriates on short assignments who pay per night in USD. Top-performing hosts in prime Accra achieve 60 to 75% occupancy at $80 to $280 per night. Break-even occupancy is just 20 to 30%, meaning the strategy holds even in the softest months of the year.'],
-          ['02', 'Long Let, Corporate & Expat', 'The most predictable income strategy. Long-term leases to corporate tenants, multinationals, embassies, NGOs, who pay in USD on 12-month contracts, often agreed 1 to 3 years in advance. Near-zero vacancy. No nightly management. At 8% annual capital growth, a $200,000 unit becomes a $293,000 asset in five years, before a single dollar of rent is counted.'],
-          ['03', 'Off-Plan Purchase & Resale', 'Reserve at off-plan pricing, the widest gap between entry and market value. Hold through construction. Resell at or before handover. Prime Accra developments have recorded 70 to 90% price appreciation over five years. Imaani buyers who reserved JAK Royale and The Ivy off-plan captured a significant portion of that between reservation and completion. A clean capital gain.'],
-          ['04', 'Live Part-Time, Earn the Rest', 'Occupy the unit during your visits. Short-let it when you are away. The rental income covers your service charge and often your financing costs, while the asset appreciates whether you are in Ghana or not. The entire purchase process can be handled remotely. You choose the address. We take care of everything else.'],
+          ['01', 'Short-Let & Corporate Rental', 'Furnish to a five-star standard and list on Airbnb, Booking.com and corporate platforms. Top hosts hit 60 to 75% occupancy at $80 to $280 a night, while break-even sits at just 20 to 30%.'],
+          ['02', 'Long Let, Corporate & Expat', 'The most predictable strategy: 12-month USD leases to corporates, embassies and NGOs, often signed years ahead. Near-zero vacancy, and at 8% growth a $200,000 unit becomes $293,000 in five years before any rent.'],
+          ['03', 'Off-Plan Purchase & Resale', 'Reserve at off-plan pricing, hold through construction, resell at or before handover. Prime Accra has recorded 70 to 90% appreciation over five years. JAK Royale and Ivy buyers captured much of it. A clean capital gain.'],
+          ['04', 'Live Part-Time, Earn the Rest', 'Live in it on your visits, short-let it when away. The income covers your service charge and often your financing, while the asset appreciates regardless. Buy entirely remotely; you choose the address, we handle the rest.'],
         ];
         foreach ($models as $m) : ?>
           <div class="abx-model">
@@ -150,16 +147,16 @@ if (!$inv_img) {
     <div class="container">
       <span class="abx-eyebrow">Full-Service Rental Management</span>
       <h2 class="abx-display abx-display--left">Your asset earns<em>from day one.</em></h2>
-      <p class="abx-lead">At handover, Imaani connects every investor with vetted property management partners who handle operations completely, so your unit earns before you have unpacked the keys.</p>
+      <p class="abx-lead">At handover we connect you with vetted management partners who run everything, so your unit earns from day one.</p>
       <div class="abx-diff">
         <?php
         $feats = [
-          ['Check-In & Check-Out', 'Seamless guest and tenant arrival and departure management for both short-let and long-let arrangements.'],
-          ['Housekeeping & Laundry', 'Professional cleaning and linen services included in short-let management. Standards maintained to five-star expectation.'],
-          ['Internet & Cable TV', 'High-speed connectivity and premium TV packages, non-negotiable for corporate and expatriate tenants.'],
+          ['Check-In & Check-Out', 'Seamless arrivals and departures for both short and long lets.'],
+          ['Housekeeping & Laundry', 'Professional cleaning and linen, kept to a five-star standard.'],
+          ['Internet & Cable TV', 'High-speed internet and premium TV, non-negotiable for corporate tenants.'],
           ['24-Hour Support Line', 'Round-the-clock management hotline for tenant needs and building issues. Nothing sits unresolved.'],
-          ['Full Apartment Management', 'Complete property oversight: maintenance, utilities, tenant communication, and monthly owner reporting.'],
-          ['Rent Collection & Reporting', 'USD rent collected and transferred to your nominated account with monthly statements. All transparent.'],
+          ['Full Apartment Management', 'Full oversight: maintenance, utilities, tenants and monthly reporting.'],
+          ['Rent Collection & Reporting', 'USD rent collected and sent to your account, with monthly statements.'],
         ];
         foreach ($feats as $f) : ?>
           <div class="abx-diff__card"><h3><?php echo esc_html($f[0]); ?></h3><p><?php echo esc_html($f[1]); ?></p></div>
@@ -173,7 +170,7 @@ if (!$inv_img) {
     <div class="container">
       <span class="abx-eyebrow">Developer Payment Structure</span>
       <h2 class="abx-display abx-display--left">Simple. Milestone-linked.<em>No surprises.</em></h2>
-      <p class="abx-lead">Your payments are tied to documented construction milestones. Nothing is requested without evidence of progress. This structure protects your capital and keeps our delivery obligations enforced by the payment schedule itself.</p>
+      <p class="abx-lead">Payments are tied to verified construction milestones. Nothing is asked without proof of progress, which protects your capital and keeps our delivery on the hook.</p>
       <div class="abx-plans">
         <div class="abx-plan">
           <span class="abx-plan__label">Standard Off-Plan</span>
@@ -183,7 +180,7 @@ if (!$inv_img) {
             <li><span>Stage Payments</span><strong>50%</strong></li>
             <li><span>Balance on Handover</span><strong>25%</strong></li>
           </ul>
-          <p>Reservation deposit is offset against the purchase price. Stage payments tied to documented construction progress with photographic updates at each milestone.</p>
+          <p>Deposit offset against price. Stage payments tied to verified progress, with photos at each milestone.</p>
         </div>
         <div class="abx-plan abx-plan--accent">
           <span class="abx-plan__label">Bespoke Payment Plan</span>
@@ -193,7 +190,7 @@ if (!$inv_img) {
             <li><span>Extended Stage Payments</span><strong>Flexible</strong></li>
             <li><span>Balance on Handover</span><strong>Balance</strong></li>
           </ul>
-          <p>Special arrangements considered case by case for qualifying buyers. All payments via international bank transfer in USD. Contact our team to discuss your circumstances.</p>
+          <p>Case-by-case for qualifying buyers. All payments in USD by bank transfer. Talk to our team.</p>
         </div>
       </div>
     </div>
@@ -204,7 +201,7 @@ if (!$inv_img) {
     <div class="container">
       <span class="abx-eyebrow">Return on Investment</span>
       <h2 class="abx-display abx-display--left">Rental income<em>projections.</em></h2>
-      <p class="abx-lead">Comprehensive ROI analysis across both rental strategies. Figures are indicative and based on current prime Accra market rates for furnished, professionally managed apartments. Our sales team will provide projections specific to the unit and development you are considering.</p>
+      <p class="abx-lead">Indicative figures for furnished, professionally managed units at current prime Accra rates. Your advisor will model the exact unit you are considering.</p>
 
       <h3 class="abx-table-title">Long Let, Furnished</h3>
       <div class="abx-table-wrap">
@@ -246,7 +243,7 @@ if (!$inv_img) {
     <div class="container container--narrow">
       <span class="abx-eyebrow">Investor FAQ</span>
       <h2 class="abx-display abx-display--left">Questions investors<em>always ask us.</em></h2>
-      <p class="abx-lead">Everything you need to know before making your investment decision. If your question isn't answered here, our sales team responds within 24 hours.</p>
+      <p class="abx-lead">The essentials before you decide. Anything else, our team replies within 24 hours.</p>
       <div class="faq-list" style="margin-top:var(--space-8)">
         <?php foreach ($inv_faqs as $i => $qa) : ?>
           <details class="faq-item"<?php echo 0 === $i ? ' open' : ''; ?>>
