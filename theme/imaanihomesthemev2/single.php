@@ -5,15 +5,11 @@ while (have_posts()) : the_post();
 ?>
 <article <?php post_class(); ?>>
   <?php if (has_post_thumbnail()) : ?>
-    <section class="post-hero-header">
-      <div class="post-hero-header__media">
-        <?php the_post_thumbnail('imaani-hero', ['class' => 'post-hero-header__img', 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw']); ?>
+    <div class="post-cover">
+      <div class="container container--wide">
+        <?php the_post_thumbnail('full', ['class' => 'post-cover__img', 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '(min-width: 1400px) 1400px, 100vw']); ?>
       </div>
-      <div class="post-hero-header__inner">
-        <p class="post-hero-header__meta"><?php echo esc_html(get_the_date()); ?><?php $cat = get_the_category(); if ($cat) echo ' &middot; ' . esc_html($cat[0]->name); ?></p>
-        <h1 class="post-hero-header__title"><?php the_title(); ?></h1>
-      </div>
-    </section>
+    </div>
   <?php else : ?>
     <section class="page-head page-head--post">
       <div class="container container--narrow">
@@ -24,7 +20,15 @@ while (have_posts()) : the_post();
   <?php endif; ?>
   <section class="section section--post">
     <div class="container blog-layout">
-      <div class="entry-content flow"><?php the_content(); ?></div>
+      <div class="post-main">
+        <?php if (has_post_thumbnail()) : ?>
+          <header class="post-content-head">
+            <p class="post-card__meta"><?php echo esc_html(get_the_date()); ?><?php $cat = get_the_category(); if ($cat) echo ' &middot; ' . esc_html($cat[0]->name); ?></p>
+            <h1 class="post-content-head__title"><?php the_title(); ?></h1>
+          </header>
+        <?php endif; ?>
+        <div class="entry-content flow"><?php the_content(); ?></div>
+      </div>
       <?php imaani_blog_panel(); ?>
     </div>
   </section>
