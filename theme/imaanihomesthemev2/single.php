@@ -4,14 +4,23 @@ get_header();
 while (have_posts()) : the_post();
 ?>
 <article <?php post_class(); ?>>
-  <section class="page-head page-head--post">
-    <div class="container container--narrow">
-      <p class="post-card__meta"><?php echo esc_html(get_the_date()); ?><?php $cat = get_the_category(); if ($cat) echo ' · ' . esc_html($cat[0]->name); ?></p>
-      <h1 class="page-head__title page-head__title--post"><?php the_title(); ?></h1>
-    </div>
-  </section>
   <?php if (has_post_thumbnail()) : ?>
-    <div class="container container--narrow post-hero"><?php the_post_thumbnail('imaani-hero', ['loading' => 'eager']); ?></div>
+    <section class="post-hero-header">
+      <div class="post-hero-header__media">
+        <?php the_post_thumbnail('imaani-hero', ['class' => 'post-hero-header__img', 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw']); ?>
+      </div>
+      <div class="post-hero-header__inner">
+        <p class="post-hero-header__meta"><?php echo esc_html(get_the_date()); ?><?php $cat = get_the_category(); if ($cat) echo ' &middot; ' . esc_html($cat[0]->name); ?></p>
+        <h1 class="post-hero-header__title"><?php the_title(); ?></h1>
+      </div>
+    </section>
+  <?php else : ?>
+    <section class="page-head page-head--post">
+      <div class="container container--narrow">
+        <p class="post-card__meta"><?php echo esc_html(get_the_date()); ?><?php $cat = get_the_category(); if ($cat) echo ' &middot; ' . esc_html($cat[0]->name); ?></p>
+        <h1 class="page-head__title page-head__title--post"><?php the_title(); ?></h1>
+      </div>
+    </section>
   <?php endif; ?>
   <section class="section section--post">
     <div class="container blog-layout">

@@ -14,7 +14,7 @@ add_action('after_setup_theme', function () {
     ]);
 
     add_image_size('imaani-card', 720, 520, true);
-    add_image_size('imaani-hero', 1600, 1000, true);
+    add_image_size('imaani-hero', 2000, 1120, true); // wide hero crop (~16:9), retina-friendly for the full-bleed post header
 });
 
 add_action('init', function () {
