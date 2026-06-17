@@ -339,6 +339,9 @@ ul, ol { padding-left: 1.2em; }
 .ad-card__media { position: absolute; inset: 0; z-index: 0; }
 .ad-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--ease-slow); }
 .ad-card:hover .ad-card__media img { transform: scale(1.06); }
+.ad-card__media .ad-card__slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease, transform var(--ease-slow); }
+.ad-card__media .ad-card__slide.is-active { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .ad-card__media .ad-card__slide { transition: none; } }
 .ad-card__scrim {
   position: absolute; inset: 0; z-index: 1;
   background:

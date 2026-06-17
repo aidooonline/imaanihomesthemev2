@@ -8,14 +8,33 @@ $alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-
 ?>
 <aside class="blog-panel" aria-label="Featured developments">
 
-  <a class="ad-card<?php echo $reg_img ? '' : ' ad-card--plain'; ?>" href="<?php echo esc_url(imaani_utm_url('https://regalia.imaanihomes.com')); ?>" target="_blank" rel="noopener">
-    <div class="ad-card__media" aria-hidden="true"><?php echo $reg_img; // phpcs:ignore ?></div>
-    <div class="ad-card__scrim" aria-hidden="true"></div>
+  <?php
+  $reg_ad_imgs     = imaani_regalia_ad_image_ids();
+  $reg_ad_eyebrow  = trim((string) get_theme_mod('regalia_ad_eyebrow', 'Now Selling'));
+  $reg_ad_title    = trim((string) get_theme_mod('regalia_ad_title', 'Regalia'));
+  $reg_ad_text     = trim((string) get_theme_mod('regalia_ad_text', "Airport Residential's new standard. Studios to penthouses, crowned by a rooftop infinity pool."));
+  $reg_ad_btn      = trim((string) get_theme_mod('regalia_ad_btn', 'Explore Regalia'));
+  $reg_ad_url      = trim((string) get_theme_mod('regalia_ad_url', 'https://regalia.imaanihomes.com')) ?: 'https://regalia.imaanihomes.com';
+  $reg_ad_interval = max(2, (int) get_theme_mod('regalia_ad_interval', 5));
+  $reg_has_media   = $reg_ad_imgs || $reg_img;
+  ?>
+  <a class="ad-card<?php echo $reg_has_media ? '' : ' ad-card--plain'; ?>" href="<?php echo esc_url(imaani_utm_url($reg_ad_url)); ?>" target="_blank" rel="noopener">
+    <?php if ($reg_ad_imgs) : ?>
+      <div class="ad-card__media ad-card__slides" data-interval="<?php echo esc_attr($reg_ad_interval * 1000); ?>" aria-hidden="true">
+        <?php foreach (array_values($reg_ad_imgs) as $idx => $img_id) : ?>
+          <?php echo wp_get_attachment_image($img_id, 'imaani-card', false, ['class' => 'ad-card__slide' . (0 === $idx ? ' is-active' : ''), 'loading' => 'lazy', 'alt' => '']); ?>
+        <?php endforeach; ?>
+      </div>
+      <div class="ad-card__scrim" aria-hidden="true"></div>
+    <?php elseif ($reg_img) : ?>
+      <div class="ad-card__media" aria-hidden="true"><?php echo $reg_img; // phpcs:ignore ?></div>
+      <div class="ad-card__scrim" aria-hidden="true"></div>
+    <?php endif; ?>
     <div class="ad-card__body">
-      <span class="ad-card__eyebrow">Now Selling</span>
-      <span class="ad-card__title">Regalia</span>
-      <span class="ad-card__text">Airport Residential's new standard. Studios to penthouses, crowned by a rooftop infinity pool.</span>
-      <span class="ad-card__cta">Explore Regalia <span aria-hidden="true">→</span></span>
+      <?php if ('' !== $reg_ad_eyebrow) : ?><span class="ad-card__eyebrow"><?php echo esc_html($reg_ad_eyebrow); ?></span><?php endif; ?>
+      <?php if ('' !== $reg_ad_title) : ?><span class="ad-card__title"><?php echo esc_html($reg_ad_title); ?></span><?php endif; ?>
+      <?php if ('' !== $reg_ad_text) : ?><span class="ad-card__text"><?php echo esc_html($reg_ad_text); ?></span><?php endif; ?>
+      <?php if ('' !== $reg_ad_btn) : ?><span class="ad-card__cta"><?php echo esc_html($reg_ad_btn); ?> <span aria-hidden="true">&rarr;</span></span><?php endif; ?>
     </div>
   </a>
 

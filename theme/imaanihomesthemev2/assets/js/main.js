@@ -62,4 +62,31 @@
     accept && accept.addEventListener('click', function () { setConsent('allow'); });
     decline && decline.addEventListener('click', function () { setConsent('deny'); });
   }
+
+  /* Sidebar ad image rotator — crossfade, configurable interval, pauses on hover/focus, respects reduced motion */
+  var adSets = document.querySelectorAll('.ad-card__slides[data-interval]');
+  if (adSets.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    adSets.forEach(function (set) {
+      var slides = set.querySelectorAll('.ad-card__slide');
+      if (slides.length < 2) return;
+      var interval = parseInt(set.getAttribute('data-interval'), 10);
+      if (!interval || interval < 2000) interval = 5000;
+      var i = 0, t = null;
+      var advance = function () {
+        slides[i].classList.remove('is-active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('is-active');
+      };
+      var start = function () { t = setInterval(advance, interval); };
+      var stop = function () { clearInterval(t); };
+      var card = set.closest('.ad-card');
+      if (card) {
+        card.addEventListener('mouseenter', stop);
+        card.addEventListener('mouseleave', start);
+        card.addEventListener('focusin', stop);
+        card.addEventListener('focusout', start);
+      }
+      start();
+    });
+  }
 })();

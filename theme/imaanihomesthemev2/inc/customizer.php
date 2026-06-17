@@ -102,3 +102,65 @@ function imaani_testimonials(): array {
     }
     return $out;
 }
+
+/**
+ * Blog sidebar "Regalia" ad — admin-managed via the Customizer.
+ * Appearance → Customize → Imaani Homes → Blog Sidebar Ad.
+ */
+add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
+
+    $wp_customize->add_section('imaani_regalia_ad', [
+        'title'       => 'Blog Sidebar Ad',
+        'panel'       => 'imaani',
+        'description' => 'The first promo card in the blog sidebar. Add up to 4 images to turn the background into an auto-rotating, cross-fading slideshow.',
+    ]);
+
+    $texts = [
+        'regalia_ad_eyebrow' => ['Eyebrow (small label, blank to hide)', 'Now Selling', 'text'],
+        'regalia_ad_title'   => ['Title', 'Regalia', 'text'],
+        'regalia_ad_text'    => ['Description', "Airport Residential's new standard. Studios to penthouses, crowned by a rooftop infinity pool.", 'textarea'],
+        'regalia_ad_btn'     => ['Button label', 'Explore Regalia', 'text'],
+    ];
+    foreach ($texts as $id => [$label, $default, $type]) {
+        $wp_customize->add_setting($id, [
+            'default'           => $default,
+            'sanitize_callback' => 'textarea' === $type ? 'sanitize_textarea_field' : 'sanitize_text_field',
+        ]);
+        $wp_customize->add_control($id, ['label' => $label, 'section' => 'imaani_regalia_ad', 'type' => $type]);
+    }
+
+    $wp_customize->add_setting('regalia_ad_url', ['default' => 'https://regalia.imaanihomes.com', 'sanitize_callback' => 'esc_url_raw']);
+    $wp_customize->add_control('regalia_ad_url', ['label' => 'Button link (URL)', 'section' => 'imaani_regalia_ad', 'type' => 'url']);
+
+    $wp_customize->add_setting('regalia_ad_interval', ['default' => 5, 'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('regalia_ad_interval', [
+        'label'       => 'Image rotation interval (seconds)',
+        'description' => 'How long each image shows before fading to the next. Minimum 2. Only used when 2 or more images are set.',
+        'section'     => 'imaani_regalia_ad',
+        'type'        => 'number',
+        'input_attrs' => ['min' => 2, 'max' => 30, 'step' => 1],
+    ]);
+
+    for ($i = 1; $i <= 4; $i++) {
+        $sid = "regalia_ad_img_{$i}";
+        $wp_customize->add_setting($sid, ['default' => 0, 'sanitize_callback' => 'absint']);
+        $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, $sid, [
+            'label'       => "Image {$i}",
+            'section'     => 'imaani_regalia_ad',
+            'mime_type'   => 'image',
+            'description' => 1 === $i ? 'Up to 4 images. With 2 or more set they cross-fade automatically; a single image stays static.' : '',
+        ]));
+    }
+});
+
+/** Set image IDs (1-4, in order) for the blog sidebar Regalia ad. */
+function imaani_regalia_ad_image_ids(): array {
+    $ids = [];
+    for ($i = 1; $i <= 4; $i++) {
+        $id = (int) get_theme_mod("regalia_ad_img_{$i}", 0);
+        if ($id > 0) {
+            $ids[] = $id;
+        }
+    }
+    return $ids;
+}
