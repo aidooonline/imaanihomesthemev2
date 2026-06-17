@@ -112,7 +112,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     $wp_customize->add_section('imaani_regalia_ad', [
         'title'       => 'Blog Sidebar Ad',
         'panel'       => 'imaani',
-        'description' => 'The first promo card in the blog sidebar. Add up to 4 images to turn the background into an auto-rotating, cross-fading slideshow.',
+        'description' => 'The first promo card in the blog sidebar. Add up to 6 images to turn the background into an auto-rotating, cross-fading slideshow.',
     ]);
 
     $texts = [
@@ -141,14 +141,14 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         'input_attrs' => ['min' => 2, 'max' => 30, 'step' => 1],
     ]);
 
-    for ($i = 1; $i <= 4; $i++) {
+    for ($i = 1; $i <= 6; $i++) {
         $sid = "regalia_ad_img_{$i}";
         $wp_customize->add_setting($sid, ['default' => 0, 'sanitize_callback' => 'absint']);
         $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, $sid, [
             'label'       => "Image {$i}",
             'section'     => 'imaani_regalia_ad',
             'mime_type'   => 'image',
-            'description' => 1 === $i ? 'Up to 4 images. With 2 or more set they cross-fade automatically; a single image stays static.' : '',
+            'description' => 1 === $i ? 'Up to 6 images. With 2 or more set they cross-fade automatically; a single image stays static.' : '',
         ]));
     }
 });
@@ -156,7 +156,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
 /** Set image IDs (1-4, in order) for the blog sidebar Regalia ad. */
 function imaani_regalia_ad_image_ids(): array {
     $ids = [];
-    for ($i = 1; $i <= 4; $i++) {
+    for ($i = 1; $i <= 6; $i++) {
         $id = (int) get_theme_mod("regalia_ad_img_{$i}", 0);
         if ($id > 0) {
             $ids[] = $id;
