@@ -339,11 +339,24 @@ ul, ol { padding-left: 1.2em; }
 .ad-card__media { position: absolute; inset: 0; z-index: 0; }
 .ad-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--ease-slow); }
 .ad-card:hover .ad-card__media img { transform: scale(1.06); }
-.ad-card__slides { background: radial-gradient(130% 130% at 80% 0%, var(--brand-dark) 0%, var(--brand-deep) 70%); }
-.ad-card__media .ad-card__slide { position: absolute; inset: 0; opacity: 0; object-fit: contain; object-position: center top; transition: opacity 1.2s ease; }
-.ad-card__media .ad-card__slide.is-active { opacity: 1; }
-.ad-card:hover .ad-card__media .ad-card__slide { transform: none; }
-@media (prefers-reduced-motion: reduce) { .ad-card__media .ad-card__slide { transition: none; } }
+
+/* Slideshow ad: the image fills a landscape band at the top; the text sits on a dark
+   panel below. The scrim fades from clear over the image to the exact dark colour at the
+   band's lower edge, so the image melts into the dark with no visible seam. */
+.ad-card--slides { background: var(--brand-deep); }
+.ad-card--slides .ad-card__slides { top: 0; bottom: auto; height: 56%; }
+.ad-card__slide { position: absolute; inset: 0; opacity: 0; object-fit: cover; object-position: center; transition: opacity 1.2s ease; }
+.ad-card__slide.is-active { opacity: 1; }
+.ad-card--slides .ad-card__scrim {
+  background: linear-gradient(to bottom,
+    rgba(63, 8, 16, 0) 0%,
+    rgba(63, 8, 16, 0) 26%,
+    rgba(63, 8, 16, .4) 44%,
+    var(--brand-deep) 56%,
+    var(--brand-deep) 100%);
+}
+.ad-card:hover .ad-card__slide { transform: none; }
+@media (prefers-reduced-motion: reduce) { .ad-card__slide { transition: none; } }
 .ad-card__scrim {
   position: absolute; inset: 0; z-index: 1;
   background:

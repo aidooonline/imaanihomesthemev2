@@ -16,9 +16,14 @@ $alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-
   $reg_ad_btn      = trim((string) get_theme_mod('regalia_ad_btn', 'Explore Regalia'));
   $reg_ad_url      = trim((string) get_theme_mod('regalia_ad_url', 'https://regalia.imaanihomes.com')) ?: 'https://regalia.imaanihomes.com';
   $reg_ad_interval = max(2, (int) get_theme_mod('regalia_ad_interval', 5));
-  $reg_has_media   = $reg_ad_imgs || $reg_img;
+  $reg_card_class  = 'ad-card';
+  if ($reg_ad_imgs) {
+      $reg_card_class .= ' ad-card--slides';
+  } elseif (! $reg_img) {
+      $reg_card_class .= ' ad-card--plain';
+  }
   ?>
-  <a class="ad-card<?php echo $reg_has_media ? '' : ' ad-card--plain'; ?>" href="<?php echo esc_url(imaani_utm_url($reg_ad_url)); ?>" target="_blank" rel="noopener">
+  <a class="<?php echo esc_attr($reg_card_class); ?>" href="<?php echo esc_url(imaani_utm_url($reg_ad_url)); ?>" target="_blank" rel="noopener">
     <?php if ($reg_ad_imgs) : ?>
       <div class="ad-card__media ad-card__slides" data-interval="<?php echo esc_attr($reg_ad_interval * 1000); ?>" aria-hidden="true">
         <?php foreach (array_values($reg_ad_imgs) as $idx => $img_id) : ?>
