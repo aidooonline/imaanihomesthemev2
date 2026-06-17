@@ -344,15 +344,15 @@ ul, ol { padding-left: 1.2em; }
    panel below. The scrim fades from clear over the image to the exact dark colour at the
    band's lower edge, so the image melts into the dark with no visible seam. */
 .ad-card--slides { background: var(--brand-deep); }
-.ad-card--slides .ad-card__slides { top: 0; bottom: auto; height: 56%; }
+.ad-card--slides .ad-card__slides { top: 0; bottom: auto; height: 62%; }
 .ad-card__slide { position: absolute; inset: 0; opacity: 0; object-fit: cover; object-position: center; transition: opacity 1.2s ease; }
 .ad-card__slide.is-active { opacity: 1; }
 .ad-card--slides .ad-card__scrim {
   background: linear-gradient(to bottom,
     rgba(63, 8, 16, 0) 0%,
-    rgba(63, 8, 16, 0) 26%,
-    rgba(63, 8, 16, .4) 44%,
-    var(--brand-deep) 56%,
+    rgba(63, 8, 16, 0) 47%,
+    rgba(63, 8, 16, .3) 57%,
+    var(--brand-deep) 63%,
     var(--brand-deep) 100%);
 }
 .ad-card:hover .ad-card__slide { transform: none; }
