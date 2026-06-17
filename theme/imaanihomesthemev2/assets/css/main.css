@@ -408,7 +408,7 @@ ul, ol { padding-left: 1.2em; }
   font-size: clamp(1.556rem, 1.4vw + 1rem, 2.111rem);
   margin: 0;
 }
-.entry-content { max-width: 70ch; font-size: 1.3rem; line-height: 1.8; }
+.entry-content { max-width: 70ch; font-size: 23px; line-height: 1.8; }
 .entry-content img { margin-block: var(--space-5); }
 .entry-content h2, .entry-content h3 { margin-top: var(--space-8); }
 .entry-content blockquote { border-left: 2px solid var(--gold-soft); margin: var(--space-6) 0; padding-left: var(--space-5); color: var(--ink-muted); font-style: italic; }
