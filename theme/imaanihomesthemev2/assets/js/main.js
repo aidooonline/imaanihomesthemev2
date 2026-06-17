@@ -71,6 +71,7 @@
       if (slides.length < 2) return;
       var interval = parseInt(set.getAttribute('data-interval'), 10);
       if (!interval || interval < 2000) interval = 5000;
+      set.style.setProperty('--acg-zoom-dur', interval + 'ms');
       var i = 0, t = null;
       var advance = function () {
         slides[i].classList.remove('is-active');

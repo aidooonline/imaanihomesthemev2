@@ -141,6 +141,18 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         'input_attrs' => ['min' => 2, 'max' => 30, 'step' => 1],
     ]);
 
+    $wp_customize->add_setting('regalia_ad_zoom', [
+        'default'           => 'in',
+        'sanitize_callback' => function ($v) { return in_array($v, ['in', 'out', 'none'], true) ? $v : 'in'; },
+    ]);
+    $wp_customize->add_control('regalia_ad_zoom', [
+        'label'       => 'Image motion',
+        'description' => 'A slow zoom applied to each image while it shows.',
+        'section'     => 'imaani_regalia_ad',
+        'type'        => 'select',
+        'choices'     => ['in' => 'Slow zoom in (default)', 'out' => 'Slow zoom out', 'none' => 'None'],
+    ]);
+
     for ($i = 1; $i <= 6; $i++) {
         $sid = "regalia_ad_img_{$i}";
         $wp_customize->add_setting($sid, ['default' => 0, 'sanitize_callback' => 'absint']);

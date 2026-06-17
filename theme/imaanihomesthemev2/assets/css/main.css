@@ -344,7 +344,7 @@ ul, ol { padding-left: 1.2em; }
    panel below. The scrim fades from clear over the image to the exact dark colour at the
    band's lower edge, so the image melts into the dark with no visible seam. */
 .ad-card--slides { background: var(--brand-deep); }
-.ad-card--slides .ad-card__slides { top: 0; bottom: auto; height: 62%; }
+.ad-card--slides .ad-card__slides { top: 0; bottom: auto; height: 62%; overflow: hidden; }
 .ad-card__slide { position: absolute; inset: 0; opacity: 0; object-fit: cover; object-position: center; transition: opacity 1.2s ease; }
 .ad-card__slide.is-active { opacity: 1; }
 .ad-card--slides .ad-card__scrim {
@@ -355,8 +355,20 @@ ul, ol { padding-left: 1.2em; }
     var(--brand-deep) 63%,
     var(--brand-deep) 100%);
 }
-.ad-card:hover .ad-card__slide { transform: none; }
-@media (prefers-reduced-motion: reduce) { .ad-card__slide { transition: none; } }
+/* Slow zoom on each slide while it shows (Ken Burns). Duration follows the rotation
+   interval via --acg-zoom-dur; the base transform equals the animation's end state so a
+   slide never visibly snaps when it swaps. */
+@keyframes acgZoomIn { from { transform: scale(1); } to { transform: scale(1.08); } }
+@keyframes acgZoomOut { from { transform: scale(1.08); } to { transform: scale(1); } }
+.ad-card--zoom-in .ad-card__slide { transform: scale(1.08); }
+.ad-card--zoom-in .ad-card__slide.is-active { animation: acgZoomIn var(--acg-zoom-dur, 6000ms) linear forwards; }
+.ad-card--zoom-out .ad-card__slide { transform: scale(1); }
+.ad-card--zoom-out .ad-card__slide.is-active { animation: acgZoomOut var(--acg-zoom-dur, 6000ms) linear forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .ad-card__slide { transition: none; }
+  .ad-card--zoom-in .ad-card__slide, .ad-card--zoom-out .ad-card__slide,
+  .ad-card--zoom-in .ad-card__slide.is-active, .ad-card--zoom-out .ad-card__slide.is-active { transform: none; animation: none; }
+}
 .ad-card__scrim {
   position: absolute; inset: 0; z-index: 1;
   background:

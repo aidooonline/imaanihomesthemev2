@@ -19,6 +19,12 @@ $alx_img  = $alexis ? imaani_project_image('alexis-residence', $alexis, 'imaani-
   $reg_card_class  = 'ad-card';
   if ($reg_ad_imgs) {
       $reg_card_class .= ' ad-card--slides';
+      $reg_ad_zoom = get_theme_mod('regalia_ad_zoom', 'in');
+      if ('out' === $reg_ad_zoom) {
+          $reg_card_class .= ' ad-card--zoom-out';
+      } elseif ('none' !== $reg_ad_zoom) {
+          $reg_card_class .= ' ad-card--zoom-in';
+      }
   } elseif (! $reg_img) {
       $reg_card_class .= ' ad-card--plain';
   }
